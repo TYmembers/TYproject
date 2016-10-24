@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--//导航-->
+    <header>
+    <div class="w-1204">
+        <div class="navtop clear">
+            <div class="logobox fl">
+                <div class="logo fl"></div>
+                <div class="name fl">9158充值</div>
+            </div>
+            <div class="adminbox fl">
+                <span>欢迎您，杭州天缘网络技术有限公司</span>
+                <a>退出</a>
+            </div>
+        </div>
+        <div class="nav clear">
+            <a href="user-order.html" class=" fl">普通用户订单</a>
+            <a href="agent-order.html" class="fl">代理商订单</a>
+            <a href="user-management.html" class=" fl">用户管理</a>
+            <a href="setup.html" class=" fl">充值设置</a>
+            <a href="account-management.html" class="active fl">账户管理</a>
+            <a href="statistics.html" class=" fl">统计报表</a>
+        </div>
+    </div>
+</header>
+<!--公共弹窗-->
+
+<!--修改登录密码的弹窗-->
+    <div class="alert-box login-box">
+        <div class="alert-header">修改登录密码<span class="close-btn">×</span></div>
+        <div class="alert-body">
+            <p> <label>请输入旧的密码：</label><input type="text"></p>
+            <p><label>请输入新的密码：</label><input type="text"></p>
+            <div class="yes-btn">确定</div>
+        </div>
+    </div>
+<!--修改支付密码的弹窗-->
+    <div class="alert-box pay-box">
+        <div class="alert-header">修改支付密码<span class="close-btn">×</span></div>
+        <div class="alert-body">
+            <p> <label>请输入旧的密码：</label><input type="text"></p>
+            <p><label>请输入新的密码：</label><input type="text"></p>
+            <div class="yes-btn">确定</div>
+        </div>
+    </div>
+<!--修改权限的弹窗-->
+    <div class="modify-box">
+        <div class="alert-header">修改支付密码<span class="close-btn">×</span></div>
+        <div class="modify-body clear">
+            <ul>
+                <li class="head">总管理<span class="triangle"></span></li>
+                <ul class="modify-lists">
+                    <li>用户管理</li>
+                    <li>充值设置</li>
+                    <li>账户管理</li>
+                    <li>统计报表</li>
+                </ul>
+            </ul>
+            <ul >
+                <li class="head newhead">已选择</li>
+                <li class="newli">
+                    <span class="content">用户管理</span>
+                    <span class="yes">√</span>
+                    <span class="no">-</span>
+                </li>
+                <li class="newli">
+                    <span class="content">充值设置</span>
+                    <span class="yes">√</span>
+                    <span class="no">-</span>
+                </li>
+                <li class="newli">
+                    <span class="content">账户管理</span>
+                    <span class="yes">√</span>
+                    <span class="no">-</span>
+                </li>
+                <li class="newli">
+                    <span class="content">统计报表</span>
+                    <span class="yes">√</span>
+                    <span class="no">-</span>
+                </li>
+            </ul>
+        </div>
+        <div class="yes-btn">确定</div>
+
+    </div>
+<!--主要信息-->
+    <div class="w-1204 paddingbox">
+        <!--帐号信息-->
+        <div class="account-info">
+            <div class="list-top">
+                <div class="list-header">帐号信息</div>
+            </div>
+            <div class="list-body">
+                <ul class="clear">
+                    <li class="fl">
+                        <lable>登录名&nbsp;&nbsp;&nbsp; : </lable><span>146441611</span>
+                    </li>
+                    <li class="fl">
+                        <lable>登录密码 : </lable><span class="orange changelog">修改</span>
+                    </li>
+                    <li class="fl">
+                        <lable>手机号码 : </lable><span>146441611</span>
+                    </li>
+                    <li class="fl">
+                        <lable>支付密码 : </lable><span class="orange changepay">修改</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--管理员列表-->
+        <div class="admin-list">
+            <div class="list-top">
+                <div class="list-header">管理员列表</div>
+            </div>
+            <table class="list-body">
+                <tr>
+                    <th>角色名称</th><th>操作员</th>
+                    <th>账号</th><th>密码</th>
+                    <th>权限</th><th>操作</th>
+                </tr>
+                <tr>
+                    <td>总部-商务部</td> <td>习近平</td>
+                    <td>xjp1234589</td> <td>********</td>
+                    <td>所有权限</td>
+                    <td>
+                        <input type="button" value="删除">
+                        <input class="modify" type="button" value="修改权限">
+                    </td>
+                </tr>
+                <tr>
+                    <td>总部-商务部</td> <td>习近平</td>
+                    <td>xjp1234589</td> <td>********</td>
+                    <td>所有权限</td>
+                    <td>
+                        <input type="button" value="删除">
+                        <input class="modify" type="button" value="修改权限">
+                    </td>
+                </tr>
+                <tr>
+                    <td>总部-商务部</td> <td>习近平</td>
+                    <td>xjp1234589</td> <td>********</td>
+                    <td>所有权限</td>
+                    <td>
+                        <input type="button" value="删除">
+                        <input class="modify" type="button" value="修改权限">
+                    </td>
+                </tr>
+                <tr>
+                    <td>总部-商务部</td> <td>习近平</td>
+                    <td>xjp1234589</td> <td>********</td>
+                    <td>所有权限</td>
+                    <td>
+                        <input type="button" value="删除">
+                        <input class="modify" type="button" value="修改权限">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--添加用户-->
+        <ul class="add-user clear">
+            <li class="fl">
+                <div class="lihead">添加管理员</div>
+                <form id="add-admin-form">
+                    <div class="libody">
+                        <lable>角色名称：</lable>
+                        <input type="text" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>&nbsp;&nbsp;&nbsp;操作员：</lable>
+                        <input type="text" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>管理账号：</lable>
+                        <input type="text" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>账号密码：</lable>
+                        <input type="password" required="required">
+                        <span>*</span>
+                    </div>
+                    <input type="submit" value="添加" class="subbtn">
+                </form>
+
+            </li>
+            <li  class="fl">
+                <form id="add-agent-form">
+                    <div class="lihead">代理商</div>
+                    <div class="libody">
+                        <lable for>公司名称：</lable>
+                        <input type="text" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>账户名称：</lable>
+                        <input type="text" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>账户密码：</lable>
+                        <input type="password" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>绑定手机：</lable>
+                        <input type="tel" required="required">
+                        <span>*</span>
+                    </div>
+                    <input type="submit" value="添加" class="subbtn">
+                </form>
+            </li>
+            <li  class="fl">
+                <form id="add-normal-form">
+                    <div class="lihead">添加普通账户</div>
+                    <div class="libody">
+                        <lable>账户名称：</lable>
+                        <input type="text" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>账户密码：</lable>
+                        <input type="password" required="required">
+                        <span>*</span>
+                    </div>
+                    <div class="libody">
+                        <lable>绑定手机：</lable>
+                        <input type="tel" required="required">
+                        <span>*</span>
+                    </div>
+                    <input type="submit" value="添加" class="subbtn">
+                </form>
+            </li>
+        </ul>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>

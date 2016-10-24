@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--导航-->
+    <header>
+    <div class="w-1204">
+        <div class="navtop clear">
+            <div class="logobox fl">
+                <div class="logo fl"></div>
+                <div class="name fl">9158充值</div>
+            </div>
+            <div class="adminbox fl">
+                <span>欢迎您，杭州天缘网络技术有限公司</span>
+                <a>退出</a>
+            </div>
+        </div>
+        <div class="nav clear">
+            <a href="user-order.html" class=" fl">普通用户订单</a>
+            <a href="agent-order.html" class="fl">代理商订单</a>
+            <a href="user-management.html" class="active fl">用户管理</a>
+            <a href="setup.html" class=" fl">充值设置</a>
+            <a href="account-management.html" class="fl">账户管理</a>
+            <a href="statistics.html" class=" fl">统计报表</a>
+        </div>
+    </div>
+</header>
+<!--弹窗-->
+    <div class="alert-box agent-alert-box">
+    <div class="alert-header">请选择导出日期<span class="close-btn">×</span></div>
+    <div class="alert-body">
+        <div class="date">
+            <input type="date" value="请选择日期">
+        </div>
+        <span>—</span>
+        <div class="date">
+            <input type="date">
+        </div>
+        <div class="yes-btn">确定</div>
+    </div>
+</div>
+<!--输入管理员密码弹窗-->
+    <div class="alert-box alert-admin-box">
+        <div class="alert-header">!提示<span class="close-btn">×</span></div>
+        <div class="alert-body">
+            <p>请输入管理员密码</p>
+            <input type="text" required="required"><br>
+            <div class=" money-btn">确定</div>
+        </div>
+    </div>
+<!--打款弹窗-->
+<div class="alert-box alert-money-box">
+    <div class="alert-header">打款<span class="close-btn">×</span></div>
+    <div class="alert-body">
+        <p>
+            <span class="lable">账户余额: </span>
+            <strong class="moneyin">1522.25</strong>
+            <input type="text">
+            <span class="operation-in">打入</span>
+        </p>
+        <p>
+            <span class="lable">返利余额: </span>
+            <strong class="moneyout">1522.25</strong>
+            <span class="operation-out">转为余额</span>
+        </p>
+        <p><span class="lable">折扣：</span><input type="text"></p>
+        <div class="yes-btn">确定</div>
+    </div>
+</div>
+<div class="w-1204 mainbox">
+    <div class="userbox">
+        <a href="user-management.html" >管理账户</a>
+        <a href="agent-management.html" class="active">经销商账户</a>
+    </div>
+    <div class="sortbox">
+        <label>手机查询：</label><input type="tel" >
+        <label>订单查询：</label><input type="text">
+        <label>用户查询：</label><input type="text">
+        <lable>筛选日期 :</lable>
+        <div class="date">
+            <input type="date">
+        </div>
+        <span>—</span>
+        <div class="date">
+            <input type="date">
+        </div>
+        <input type="button" value="查询">
+    </div>
+    <hr>
+    <table class="order-table">
+        <tr >
+            <th>注册时间</th><th>公司（门店）名称</th>
+            <th>公司门店地址</th><th>用户ID</th>
+            <th>绑定手机</th><th>营业执照（三证合一）</th>
+            <th>代理商审核</th><th>操作</th>
+            <th>账户余额</th><th>返利余额</th>
+            <th class="orange"></th>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td>123456789.00</td><td>123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+        <tr >
+            <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>
+            <td>杭州滨江区XX路XX号XXX室</td><td>ggy123456</td>
+            <td >13467890756</td><td class="orange">查看</td>
+            <td>待审核</td>
+            <td>
+                <select name="pass">
+                    <option value="yes">通过</option>
+                    <option value="yes">不通过</option>
+                </select>
+            </td>
+            <td class="mybalance">123456789.00</td><td class="myrebate">123.123</td>
+            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+        </tr>
+    </table>
+    <ul class="paging clear">
+        <li class="active fl"><a >1</a></li>
+        <li class="fl"><a >2</a></li>
+        <li class="fl"> <a >3</a></li>
+        <li class="fl"> <a >4</a></li>
+        <li class="fl"> <a >5</a></li>
+        <li class="fl"> <a >6</a></li>
+        <li class="fl nextpage"> <a >下一页</a></li>
+    </ul>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>
