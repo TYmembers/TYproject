@@ -7,12 +7,13 @@ $(document).ready(function () {
         alertTY();//弹窗
         modifyTY();////账户管理页面修改权限
         inputTY();//input  时的各种判断
+        pageChangeTY();//切换页面
+        ableInput();//设置页面的回复禁用
+        optionTimeTY();//统计报表页面筛选时间
+        // viewLicense();//查看营业执照
+
     }
     var account = $(".userbox>a");
-    var page = $(".paging>li:not('.nextpage')>a");
-    var next = $(".paging>li.nextpage>a");
-
-//普通用户订单的下拉框
     function selestTY() {
         var select={};
         select.icon = $(".nav .triangle");//触发按钮
@@ -36,7 +37,6 @@ $(document).ready(function () {
         });
     }
 
-//弹窗
     function alertTY() {
         var alert={};
         alert.out = $(".mainbox .output-btn");//导出订单按钮
@@ -106,7 +106,7 @@ $(document).ready(function () {
             alert.payalertbox.show();
         });
     }
-//账户管理页面修改权限
+
     function modifyTY() {
         var modify={};
         modify.modify = $(".admin-list .modify");//修改权限按钮
@@ -161,7 +161,6 @@ $(document).ready(function () {
 
 //公共弹窗
     var tip=["输入不能为空!"];
-
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
         var $alertheader=$(" <div class='alert-header'>!! 重要提示</div>");
@@ -183,9 +182,6 @@ $(document).ready(function () {
         });
     }
 
-
-
-//input的判断
     function inputTY() {
         var input={};
         input.text=$("input[type='text']");//文本输入框
@@ -197,9 +193,9 @@ $(document).ready(function () {
         // });
     }
 
-
-
-    //页码切换
+    function pageChangeTY() {
+    var page = $(".paging>li:not('.nextpage')>a");
+    var next = $(".paging>li.nextpage>a");
 
     page.bind('click', function (e) {
         e.preventDefault();
@@ -208,12 +204,74 @@ $(document).ready(function () {
 
     });
 
-
     next.bind("click", function () {
         $(".paging>li.active").removeClass("active")
             .next("li:not('.next')").addClass("active");
 
     });
+}
+
+    function ableInput() {
+    var setup={};
+    setup.modify=$(".setup-body>.btnbox>.modify");//修改按钮
+    setup.obj=$(".setup-body input.border");//被修改的框
+
+    setup.modify.bind('click',function () {
+        setup.obj.removeAttr("disabled").attr("color","#999");
+    });
+}
+
+
+//统计报表页面筛选时间
+    function optionTimeTY() {
+    var opt={};
+    opt.select=$("#opttime");
+
+    function getData() {
+        var td=$("tr.mean td");
+        $.ajax({
+            type:"post",
+            url:"../json/statistic.json",
+            data:{
+                option:opt.select.val()
+            },
+            datatype:"json",
+            success:function (data) {
+                if (data.code==0){
+                    var lists=data.content;
+                    $.each(lists,function (i) {
+                        (function (i) {
+                            td.eq(i).text(lists[i]);
+                        })(i)
+                    });
+                }else{
+                    alert('服务器错误发生错误')
+                }
+            }
+        });
+    }
+    getData();
+    opt.select.change(function () {
+        getData();
+
+    })
+
+}
+
+    // function viewLicense() {
+    //     var license={};
+    //     license.view=$(".order-table td:eq(5).orange");
+    //     license.mask = $(".fullmask");
+    //     license.close=$(".fullmask .close-icon");
+    //
+    //     license.view.bind('click',function () {
+    //         license.mask.show();
+    //     });
+    //
+    //     license.close.bind('click',function () {
+    //         license.mask.hide();
+    //     })
+    // }
 
     init();
 });
