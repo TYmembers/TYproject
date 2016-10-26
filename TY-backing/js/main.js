@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2016/10/21.
  */
+var comman=window.comman;
 $(document).ready(function () {
     function init() {
         selestTY();//普通用户订单下拉单
@@ -10,6 +11,8 @@ $(document).ready(function () {
         pageChangeTY();//切换页面
         ableInput();//设置页面的回复禁用
         optionTimeTY();//统计报表页面筛选时间
+        exitSysterm();//退出登录清空本地存储
+
         // viewLicense();//查看营业执照
 
     }
@@ -64,6 +67,8 @@ $(document).ready(function () {
         alert.paying.bind("click",function () {
             var mybalance= $(this).parent("td").siblings("td.mybalance").text();
             var myrebate=$(this).parent("td").siblings("td.myrebate").text();
+            var userID=$(this).parents('tr').children('td').eq(3).text();//获取userID
+            localStorage.setItem("userID",userID);
 
             alert.moneyin.text(mybalance);
             alert.moneyout.text( myrebate);
@@ -119,6 +124,9 @@ $(document).ready(function () {
         modify.delete =$(".modify-box .no");//删除已选择的选项
         modify.close =$(".modify-box .close-btn");//关闭弹窗
         modify.modify.bind('click',function () {
+            var account=$(this).parents("tr").children("td").eq(2).text();
+            localStorage.setItem("account",account);
+            console.log(account);
             modify.box.show();
         });
 
@@ -141,18 +149,20 @@ $(document).ready(function () {
             li.removeClass("active");
         });
 
-        var select=[];//记录被选中的li的部分
-
-        modify.confirm.bind("click",function () {
-
-            $.each(modify.newli,function (i) {
-                if (modify.newli.eq(i).css("display")=="block"){
-                    select.push(i)
-                }
-            });
-            alert(select);
-            modify.box.hide();
-        });
+        // var select=[];//记录被选中的li的部分
+        //
+        //
+        // modify.confirm.bind("click",function () {
+        //
+        //     $.each(modify.newli,function (i) {
+        //         if (modify.newli.eq(i).css("display")=="block"){
+        //             select.push(i+1)
+        //         }
+        //     });
+        //     localStorage.select=select;
+        //     select=[];
+        //     modify.box.hide();
+        // });
 
         modify.close.bind("click",function () {
             modify.box.hide();
@@ -244,8 +254,6 @@ $(document).ready(function () {
                             td.eq(i).text(lists[i]);
                         })(i)
                     });
-                }else{
-                    alert('服务器错误发生错误')
                 }
             }
         });
@@ -256,7 +264,14 @@ $(document).ready(function () {
 
     })
 
-}
+    }
+
+    function exitSysterm() {
+        var exitbtn=$(".adminbox a");
+        exitbtn.bind('click',function () {
+            localStorage.clear();
+        })
+    }
 
     // function viewLicense() {
     //     var license={};
