@@ -76,7 +76,7 @@ html:hover {
 {
   color: #666;
   font-weight: bold;
-  width: 18%;
+  width: 2.88rem;
   vertical-align: middle;
   text-align: right;
   font-size: 0.6rem;
@@ -109,7 +109,7 @@ html:hover {
   background-color: #aaa;
   color: #fff;
   margin-left: 0.2rem;
-  disabled:"true";
+  pointer-events: none;
 }
 .login .loginInput .code .sendcode{
   font-weight: 600;
@@ -118,6 +118,7 @@ html:hover {
   background-color: #ffb31f;
   color: #fff;
   margin-left: 0.2rem;
+  pointer-events: all;
 }
 .login .loginbtn {
   position: fixed;
@@ -501,6 +502,7 @@ html:hover {
   padding: 0 0.4rem;
 }
 .pay .actList {
+  cursor: pointer;
   display: block;
   padding: 0.5rem 0.8rem;
   border-bottom: 1px solid #ccc;

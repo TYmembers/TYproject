@@ -13,6 +13,7 @@ $(document).ready(function () {
     recharge.time=$(".checkbox>li");//到账时间
     recharge.icon=$(".checkbox>li>i"); //选择框
     recharge.price=$(".push .moneyList a");//选择价钱
+    recharge.length=
 
 // 默认电话号码
 
@@ -27,40 +28,63 @@ $(document).ready(function () {
         recharge.numberBefore.show();
     });
 
-    //  验证手机号码的归属地
-    function getMobileOperation() {
-        if (isPhone(recharge.phoneNumber.val())){
-            recharge.numberBefore.hide();
-            $.ajax({
-                type:'post',
-                url:"../json/mobiletype.json",
-                data:{
-                    phoneNumber:recharge.phoneNumber.val()
-                },
-                datatype:"json",
-                success:function (data) {
-                    if (data.code==0){
-                        recharge.type.text("用户绑定号码"+data.province+data.operation).show();
-                        localStorage.setItem('phoneNumber',recharge.phoneNumber.val());
-                    }else{
-                        createAlert(tip[1]);
-                    }//else{查不到手机号是的弹窗}
-                }
-            });
-        }
-    }
-    getMobileOperation();
-
-    //输入切换号码验证归属地
-    recharge.phoneNumber[0].onkeyup=function () {
-        getMobileOperation();
-    };
-
     //点击充值号码填充
     recharge.numberList.bind("click",function () {
         recharge.phoneNumber.val($(this).children(".number").text());
         recharge.numberBefore.hide();
     });
+
+    //  验证手机号码的归属地
+
+            function getMobileOperation() {
+            if (isPhone(recharge.phoneNumber.val()) ){
+                recharge.numberBefore.hide();
+                $.ajax({
+                    method:'get',
+                    url:"http://apis.baidu.com/apistore/mobilephoneservice/mobilephone",
+                    headers:{
+                        apikey:"0232aa12434e9773e9cfaac7ffafddcf"
+                    },
+                    data:{
+                        tel:recharge.phoneNumber.val()
+                    },
+                    datatype:"json",
+                    success:function (xhr) {
+
+                        var datas=JSON.parse(xhr);
+                        if (datas.errMsg=="success"){
+                            var data=datas.retData;
+                            recharge.type.text("用户绑定号码"+data.carrier).show();
+                            localStorage.setItem('carrier',data.carrier);
+                            localStorage.setItem('phoneNumber',recharge.phoneNumber.val());
+                        }else {
+
+                            createAlert(tip[3]);//正确字段查不到归属地时
+                        }
+                    }
+                });
+            }else{
+                createAlert(tip[1]);
+            }
+        }
+
+        if (recharge.phoneNumber.val().length==11){
+            getMobileOperation();
+        }else{
+            getMobileOperation =null;
+        }
+
+    // }
+
+
+    //输入切换号码验证归属地
+    recharge.phoneNumber[0].onkeyup=function () {
+        console.log(recharge.phoneNumber.val().length);
+        if (recharge.phoneNumber.val().length==11) {
+            getMobileOperation();
+        }
+    };
+
 
     //清空历史充值号码
     recharge.clearNum.bind("click",function () {
@@ -80,7 +104,8 @@ $(document).ready(function () {
     recharge.price.bind("click",function (e) {
         if (recharge.icon.children('span').hasClass("disc")){
             e.preventDefault();
-            localStorage.setItem("howmuch",$(this).children('h4').text());
+            localStorage.setItem("howmuch",$(this).children('h4').children('span').text());
+            localStorage.setItem('discount',$(this).children('p').children("span").text());
             $(this).toggleClass("active").siblings("a").removeClass("active");
             location.href = "../webhtml/pay.html";
         }else{

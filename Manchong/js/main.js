@@ -4,7 +4,7 @@
 $(document).ready(function () {
     function init() {
         login();
-        recharge();
+        // recharge();
     }
 //登录页
     function login() {
@@ -21,6 +21,10 @@ $(document).ready(function () {
             if (isPhone(log.phone.val())){
                 log.icon.show();
                 log.codeBtn.removeClass("beforesend").addClass("sendcode");
+            }else{
+                log.icon.hide();
+                log.codeBtn.addClass('beforesend').removeClass('sendcode');
+
             }
         });
 

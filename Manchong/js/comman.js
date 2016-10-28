@@ -2,13 +2,14 @@
  * Created by Administrator on 2016/10/17.
  */
 
-
+var comman={};
 
 //弹窗
 var tip=[
     '恭喜您，充值成功！',
     '请输入正确的手机号码',
-    '请选择到帐时间'
+    '请选择到帐时间',
+    '未知归属地号码'
 ];
 function createAlert(tip) {
     $("body").prepend("<div class='full-mask'></div>");
@@ -47,6 +48,8 @@ function isPhone(phone){
     var rules = /^1[3|4|5|7|8][0-9]{9}$/;
     return rules.test(phone)
 }
+
+window.comman=comman;
 
 //弹窗样式
 

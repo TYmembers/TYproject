@@ -12,8 +12,8 @@ $(document).ready(function () {
         ableInput();//设置页面的回复禁用
         optionTimeTY();//统计报表页面筛选时间
         exitSysterm();//退出登录清空本地存储
-
-        // viewLicense();//查看营业执照
+        viewAuthority();//账户管理页面查看权限
+        viewLicense();//查看营业执照
 
     }
     var account = $(".userbox>a");
@@ -170,7 +170,7 @@ $(document).ready(function () {
     }
 
 //公共弹窗
-    var tip=["输入不能为空!"];
+    var tip=["输入不能为空!", "还未添加任何权限"];
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
         var $alertheader=$(" <div class='alert-header'>!! 重要提示</div>");
@@ -273,20 +273,83 @@ $(document).ready(function () {
         })
     }
 
-    // function viewLicense() {
-    //     var license={};
-    //     license.view=$(".order-table td:eq(5).orange");
-    //     license.mask = $(".fullmask");
-    //     license.close=$(".fullmask .close-icon");
-    //
-    //     license.view.bind('click',function () {
-    //         license.mask.show();
-    //     });
-    //
-    //     license.close.bind('click',function () {
-    //         license.mask.hide();
-    //     })
-    // }
+    function viewLicense() {
+        var license={};
+        license.view=$(".order-table td.view-license");//查看按钮
+        license.img =$('.order-table td.view-license>img');
+        license.imgurl=license.img.attr('src');//营业执照的小图的src
+        license.mask = $(".fullmask");//遮罩层
+        license.close=$(".fullmask .close-icon");//关闭按钮
+
+
+
+        license.view.bind('click',function () {
+            console.log($(this).text());
+            license.mask.show()
+                .find('img').attr('src',license.imgurl);
+        });
+
+        license.close.bind('click',function () {
+            license.mask.hide();
+        })
+    }
+
+    function viewAuthority() {
+        var authority={};
+        authority.view = $(".admin-list .list-body td:nth-child(5)");//查看按钮
+        authority.noview=$('.admin-list .list-body td:nth-child(5):contains("无任何权限")');
+        authority.box=$(".authority");//权限盒子
+        authority.close=$(".authority>.close");//关闭按钮
+
+        authority.noview.css('pointer-events','none');
+        authority.view.bind('click',function () {
+             authority.account=$(this).siblings("td").eq(2).text();//账号
+             authority.numli =$(this).parents('tr').index();//查看时距离顶部的li的数目
+             authority.sibtd=$(this).parent('tr').siblings('tr').children('td:nth-child(5)');
+
+            $.ajax({
+                type:"post",
+                // url:"../Account/user_root",
+                url:"../json/authority.json",
+                data:{
+                    user:authority.account
+                },
+                datatype:'json',
+                success:function (data) {
+                   if(data.code==1){
+                       var arr=data.root.split(",");
+                       var top= 54;
+                       top +=authority.numli*41;
+                       authority.box.css('top',top+"px");
+                       var contents=[
+                           "用户管理",
+                           "充值设置",
+                           "账户管理",
+                           "统计报表"
+                       ];
+                       var content;
+                       $.each(arr,function (i) {
+                            var index=parseInt(arr[i])-1;
+                           content=contents[index];
+                           var li=$("<li>"+content+"</li>");
+                           authority.box.append(li);
+                       });
+                       authority.box.show();
+                       authority.sibtd.css('pointer-events','none');
+                       authority.close.bind('click',function () {
+                           authority.box.hide()
+                               .children('li').remove();
+                           authority.sibtd.css('pointer-events','all');
+                           authority.noview.css('pointer-events','none');
+                       });
+                   }
+
+                }
+            });
+        });
+
+
+    }
 
     init();
 });

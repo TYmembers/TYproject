@@ -660,6 +660,37 @@ header {
 }
 .paddingbox .admin-list {
   margin-top: 30px;
+  position: relative;
+}
+.paddingbox .admin-list .authority {
+  display: none;
+  color: #fff;
+  width: 190px;
+  min-height: 40px;
+  line-height: 40px;
+  position: absolute;
+  z-index: 99;
+  background-color: #999;
+  top: 54px;
+  right: 191px;
+}
+.paddingbox .admin-list .authority i {
+  display: inline-block;
+  position: absolute;
+  right: 1px;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  line-height: 16px;
+}
+.paddingbox .admin-list .authority li {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #fff;
 }
 .paddingbox .admin-list tr {
   vertical-align: middle;
