@@ -27,7 +27,7 @@ function createAlert(tip) {
 
 
 //倒计时
-wait=30;
+wait=60;
 function time(o) {
     o.removeClass("sendcode").addClass("beforesend");
     o.val("重新发送(" + wait + ")");
