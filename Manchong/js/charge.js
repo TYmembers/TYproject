@@ -8,12 +8,11 @@ $(document).ready(function () {
     recharge.type=$("#mobile-type");//号码运营商
     recharge.changeBtn=$("#changenumber");//更改号码
     recharge.numberBefore=$(".push>.phoneNumber");//号码记录
-    recharge.numberList=$(".push>.phoneNumber>li");
-    recharge.clearNum=$(".push>.phoneNumber>li:nth-child(4)");//清除充值记录
+    // recharge.numberList=$(".push>.phoneNumber>li.newli");
+    // recharge.clearNum=$(".push>.phoneNumber>li.clear");//清除充值记录
     recharge.time=$(".checkbox>li");//到账时间
     recharge.icon=$(".checkbox>li>i"); //选择框
     recharge.price=$(".push .moneyList a");//选择价钱
-    recharge.length=
 
 // 默认电话号码
 
@@ -21,18 +20,45 @@ $(document).ready(function () {
     //切换号码
     recharge.changeBtn.bind("click",function () {
         recharge.type.hide();
-        recharge.phoneNumber.css({color:"#ccc",fontSize:"1.2rem"}).val("请您输入手机号码")
+        recharge.phoneNumber.css({color:"#ccc",fontSize:"1.2rem"}).val(localStorage.loginNumber)
             .focus(function () {
                 $(this).val("").css({color:"#555",fontSize:"1.3rem"});
             });
-        recharge.numberBefore.show();
+        $.ajax({
+            method:'post',
+            url:'../json/numbefore.json',
+            data:{
+                tel:recharge.phoneNumber.val()
+            },
+            datatype:"json",
+            success:function (datas) {
+                if (datas.code==1){
+                    var nums=datas.content;
+                    $.each(nums,function (i) {
+                        recharge.newli=$("<li class='newli'></li>");
+                        recharge.newli.text(nums[i].tel);
+                        recharge.numberBefore.append(recharge.newli);
+                    });
+                    recharge.lastli=$("<li class='clearnum'>清空历史充值号码</li>");
+                    recharge.numberBefore.append(recharge.lastli);
+                    recharge.numberBefore.show();
+                    //点击充值号码填充
+                    recharge.linum=$(".push>.phoneNumber>li.newli");
+                    recharge.linum.bind("click",function () {
+                        recharge.phoneNumber.val($(this).text());
+                        recharge.numberBefore.remove($(this).children()).hide();
+                    });
+                    //清空历史充值号码
+                    recharge.lastli.bind("click",function () {
+                        $(this).parent().remove($(this).children()).hide();
+                    });
+                }else{
+                    recharge.numberBefore.hide();
+                }
+            }
+        });
     });
 
-    //点击充值号码填充
-    recharge.numberList.bind("click",function () {
-        recharge.phoneNumber.val($(this).children(".number").text());
-        recharge.numberBefore.hide();
-    });
 
     //  验证手机号码的归属地
 
@@ -79,17 +105,12 @@ $(document).ready(function () {
 
     //输入切换号码验证归属地
     recharge.phoneNumber[0].onkeyup=function () {
-        console.log(recharge.phoneNumber.val().length);
         if (recharge.phoneNumber.val().length==11) {
             getMobileOperation();
         }
     };
 
 
-    //清空历史充值号码
-    recharge.clearNum.bind("click",function () {
-        $(this).parent().hide();
-    });
 
     //选择到帐时间,单选
     recharge.icon.bind("click",function () {

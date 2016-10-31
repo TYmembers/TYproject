@@ -9,7 +9,8 @@ var tip=[
     '恭喜您，充值成功！',
     '请输入正确的手机号码',
     '请选择到帐时间',
-    '未知归属地号码'
+    '未知归属地号码',
+    '验证码不正确'
 ];
 function createAlert(tip) {
     $("body").prepend("<div class='full-mask'></div>");
@@ -29,11 +30,10 @@ function createAlert(tip) {
 wait=30;
 function time(o) {
     o.removeClass("sendcode").addClass("beforesend");
-    o.attr("disabled", true);
     o.val("重新发送(" + wait + ")");
     wait--;
     var x=setTimeout(function() {
-            time(o)
+            time(o);
         },
         1000);
     if (wait==0){

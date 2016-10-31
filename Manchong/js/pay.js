@@ -2,7 +2,6 @@
  * Created by Administrator on 2016/10/18.
  */
 $(document).ready(function () {
-    var date=new Date();
     var pay={};
     pay.way=$(".pay>.actList");//支付方式
     pay.way.bind('click',function () {
@@ -16,8 +15,7 @@ $(document).ready(function () {
                 howlong:localStorage.howlong,//充值时间
                 howmuch:localStorage.howmuch,//充值数额(纯数值)
                 discount:localStorage.discount,//折后的实际价钱
-                payway:$(this).find('h4').text(),//充值方式
-                date:date     //下订单的时间
+                payway:$(this).find('h4').text()//充值方式
             },
             datatype:"json",
             success:function (data) {

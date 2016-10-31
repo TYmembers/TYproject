@@ -7,7 +7,7 @@ body {
   height: 100%;
   width: 100%;
   margin: 0 auto;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 html:hover {
   /* background: -webkit-radial-gradient(center 40%,circle,#ace,#fff,#c63737 80%);*/
@@ -398,7 +398,8 @@ html:hover {
 .record .goback {
   padding: 0 0.4rem;
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
+  display: block;
   top: 0;
   height: 1.3rem;
   background: url("../img/image/cheaptist.png") no-repeat center center;
@@ -419,6 +420,7 @@ html:hover {
   margin-bottom: 3.2rem;
 }
 .record .Relist {
+  margin-bottom: 0.2rem;
   padding: 0.3rem;
   font-size: 0.7rem;
 }

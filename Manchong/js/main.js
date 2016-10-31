@@ -39,33 +39,39 @@ $(document).ready(function () {
                 },
                 datatype:"json",
                 success:function (data) {
-                    if (data.code ==0){
-                        log.code.val(data.message);
-                        log.codeBtn.toggleClass("sendcode").val("验证码正确");
-                        time=null;
-                    }
+                    if (data.code ==1){
+                        // wait=1;//清空计时器
+                        log.codePhp=data.message;
+                    }//不成功时重新发送
                 }
             });
 
         });
 
-        //登录
+        //登录   发送手机号和验证码  ，验证验证码正确性
         log.logBtn.bind("click",function (){
-            $.ajax({
-                type:'post',
-                url:'../json/login.json',
-                data:{
-                    phoneNumber:log.phone.val(),
-                    codeNumber:log.code.val()
-                },
-                datatype:'json',
-                success:function (data) {
-                    if(data.code ==0) {
-                        localStorage.setItem("loginNumber",log.phone.val());
-                        location.href = "../webhtml/push.html";
+            if (log.code.val()==log.codePhp){
+                $.ajax({
+                    type:'post',
+                    url:'../json/login.json',
+                    data:{
+                        phoneNumber:log.phone.val(),
+                        codeNumber:log.code.val()
+                    },
+                    datatype:'json',
+                    success:function (data) {
+                        if(data.code ==1) {
+                            localStorage.setItem("loginNumber",log.phone.val());
+                            localStorage.setItem('token',data.token);
+                            location.href = "../webhtml/push.html";
+                        }else{
+                            createAlert(data.message);
+                        }
                     }
-                }
-            })
+                })
+            }else{
+                createAlert(tip[4])
+            }
         });
     }
 
