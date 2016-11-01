@@ -98,7 +98,7 @@ $(document).ready(function () {
 
         })
     }
-
+    //未判断data.code  //默认直接拉取数据
     $.ajax({
         method:'get',
         url:'../json/date.json',
@@ -160,10 +160,6 @@ $(document).ready(function () {
                 }
                 datalist2=[];
             }
-
-
-
-
         }
     });
 
