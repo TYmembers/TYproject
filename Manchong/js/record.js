@@ -22,6 +22,7 @@ $(document).ready(function () {
             var year=today.getFullYear();
             var datalist=[];
             time=[];
+            selectDate();
             function selectDate() {
                 $.each(data, function (i) {
                     var timestr=data[i].create_time;//数据中的每一个time
@@ -43,7 +44,6 @@ $(document).ready(function () {
                 }
             }
 
-         selectDate();
         }
     });
     function createRecord(month) {
