@@ -42,6 +42,8 @@ $(document).ready(function () {
                     if (data.code ==1){
                         // wait=1;//清空计时器
                         log.codePhp=data.message;
+                    }else{
+                        createAlert(tip[1])
                     }//不成功时重新发送
                 }
             });

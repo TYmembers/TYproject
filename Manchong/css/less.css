@@ -99,7 +99,7 @@ html:hover {
   color:#5ab75c;
   font-weight: bold;
   vertical-align: middle;
-  margin-left: 0.5rem;
+  margin-left: 4%;
   display: none;
 }
 .login .loginInput .phone {
@@ -184,8 +184,10 @@ html:hover {
   cursor: pointer;
 }
 .push .phoneNumber{
+  border: 1px solid #c3c3c3;
+  width: 100%;
+  max-width: 722px;
   display: none;
-  width: 15.2rem;
   margin-right: 0.4rem;
   position: absolute;
   background-color: #fff;
@@ -440,7 +442,7 @@ html:hover {
   font-size: 0.7rem;
 }
 .record .Relist .month {
-  width: 2.65rem;
+  width: 4rem;
   color: #c63636;
   line-height: 0.8rem;
   text-align: center;
@@ -451,11 +453,18 @@ html:hover {
   margin-bottom: 0.3rem;
 }
 .record .Relist li .date {
-  font-size: 0.4rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 4rem;
+  font-size: 0.5rem;
+  text-align: center;
   background-color: #838383;
   color: #fff;
-  padding: 3px;
   display: inline-block;
+}
+.record .Relist li .date>span{
+  display: inline-block;
+  margin-right: 5px;
 }
 .record .Relist li .detail {
   font-size: 0;
@@ -466,6 +475,7 @@ html:hover {
   color: #737373;
 }
 .record .Relist li .detail .iconfont {
+  margin:0 0.15rem;
   float: left;
   line-height: 1.4rem;
   width: 1.5rem;
@@ -485,9 +495,9 @@ html:hover {
   display: inline-block;
 }
 .record .Relist li .detail span:nth-of-type(1) {
-  margin-right: 0.1rem;
+  margin-right: 0.3rem;
 }
-.record .Relist li .detail span:nth-last-child(1) {
+.record .Relist li .detail span.suc {
   font-size: 0.5rem;
   float: right;
   width: 2.6rem;
@@ -496,6 +506,15 @@ html:hover {
   border-left: 1px solid #eaeaea;
   color: #63c673;
 }
+.record .Relist li .detail span.fail{
+  font-size: 0.5rem;
+  float: right;
+  width: 2.6rem;
+  min-width: 56px;
+  text-align: center;
+  border-left: 1px solid #eaeaea;
+  color: #999999;
+}
 .record .btnBox {
   position: fixed;
   bottom: 0;
@@ -503,6 +522,7 @@ html:hover {
   transform: translateX(-50%);
   padding: 0.5rem 0;
   background: #fff;
+  width: 90%;
 }
 .record .btnBox .logOut {
   display: inline-block;
@@ -511,7 +531,7 @@ html:hover {
   text-align: center;
   border-radius: 4px;
   font-size: 1.1rem;
-  width: 15.4rem;
+  width: 100%;
   background: #c63636;
 }
 .pay {

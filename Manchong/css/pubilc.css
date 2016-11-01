@@ -75,12 +75,13 @@ button {
     cursor: pointer;
     -webkit-appearance: none;
 }
-@font-face {font-family: 'iconfont';
-    src: url('../icon/iconfont.eot'); /* IE9*/
-    src: url('../icon/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../icon/iconfont.woff') format('woff'), /* chrome、firefox */
-    url('../icon/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('../icon/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+@font-face {
+    font-family: 'iconfont';  /* project id："162236" */
+    src: url('//at.alicdn.com/t/font_beaw7pq1ctcyds4i.eot');
+    src: url('//at.alicdn.com/t/font_beaw7pq1ctcyds4i.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_beaw7pq1ctcyds4i.woff') format('woff'),
+    url('//at.alicdn.com/t/font_beaw7pq1ctcyds4i.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_beaw7pq1ctcyds4i.svg#iconfont') format('svg');
 }
 
 .iconfont {

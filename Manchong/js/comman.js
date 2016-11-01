@@ -28,7 +28,7 @@ function createAlert(tip) {
     $("body").prepend("<div class='full-mask'></div>");
     $(".full-mask").append("<div class='alert-box'></div>");
     $(".alert-box").append("<div class='alert-content-box'></div><div class='alert-button'>知道了</div>");
-    $(".alert-content-box").append("<i class='iconfont alerticon'>&#xe623;</i><p>"+tip+"</p>");
+    $(".alert-content-box").append("<i class='iconfont alerticon'>&#xe64c;</i><p>"+tip+"</p>");
 
     var alertBtn=$(".alert-button");
     alertBtn.bind("click",function(){
