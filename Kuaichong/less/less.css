@@ -1,25 +1,16 @@
 html {
   height: 100%;
   font-size: 20px;
-  font-family: "微软雅黑";
-  max-width: 750px;
-  margin: 0 auto;
+  font-family: "Microsoft Sans Serif";
 }
 body {
   height: 100%;
   width: 100%;
-  margin: 0 auto;
-  overflow-y: scroll;
-  max-width: 750px;
 }
 html:hover {
   /* background: -webkit-radial-gradient(center 40%,circle,#ace,#fff,#c63737 80%);*/
 }
 .welcome {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 100%;
   background: url("../img/image/circle.png") bottom center no-repeat;
   background-size: 100% auto;
   background-color: #c63737;
@@ -36,32 +27,24 @@ html:hover {
   width: 80%;
   margin: 0 10%;
 }
-
-.welcome .button {
-  max-width:700px ;
+.welcome .loginbtn {
+  height: 11.7rem;
+  position: relative;
+}
+.welcome .loginbtn .button {
+  text-align: center;
   font-size: 1rem;
   position: absolute;
-  width: 85%;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  width: 80%;
+  height: 2rem;
+  line-height: 2rem;
   border: 2px solid #fff;
-  border-radius: 5px;
+  border-radius: 3px;
   left: 50%;
   background: rgba(255, 255, 255, 0);
   color: #fff;
-  bottom: 5.5rem;
+  top: 4.5rem;
   transform: translateX(-50%) scale(1);
--webkit-transform: translateX(-50%) scale(1);
-}
-
-.welcome .copyright{
-  max-width:750px;
-  width:100%;
-  position: absolute;
-  bottom:20px;
-  color:#fff;
-  font-size: 0.5rem;
-  text-align: center;
 }
 .login .loginInput span,
 .login .loginInput input {
@@ -85,64 +68,44 @@ html:hover {
   border: 1px solid #eaeaea;
 }
 .login .loginInput .phone span,
-.login .loginInput .code span
-{
+.login .loginInput .code span {
   color: #666;
   font-weight: bold;
-  width: 16%;
+  width: 18%;
   vertical-align: middle;
   text-align: right;
   font-size: 0.6rem;
-}
-.login i.iconfont{
-  font-size: 0.8rem;
-  line-height: 2rem;
-  color:#5ab75c;
-  font-weight: bold;
-  vertical-align: middle;
-  margin-left: 4%;
-  display: none;
 }
 .login .loginInput .phone {
   padding-top: 0.5rem;
 }
 .login .loginInput .phone input {
-  width: 73%;
+  width: 11.25rem;
 }
 .login .loginInput .code {
   margin-top: 1rem;
 }
 .login .loginInput .code input[type='text'] {
-  width: 43%;
+  width: 6.4rem;
 }
-.login .loginInput .code .beforesend{
-  font-weight: 600;
+.login .loginInput .code input[type='button'] {
   font-size: 0.6rem;
-  width: 29%;
-  background-color: #aaa;
-  color: #fff;
-  margin-left: 0.2rem;
-  pointer-events: none;
-}
-.login .loginInput .code .sendcode{
-  font-weight: 600;
-  font-size: 0.6rem;
-  width: 29%;
+  width: 4.7rem;
   background-color: #ffb31f;
+  border: 1px solid #ffa600;
   color: #fff;
   margin-left: 0.2rem;
-  pointer-events: all;
 }
 .login .loginbtn {
   position: fixed;
   bottom: 0.5rem;
-  width: 100%;
-  max-width: 750px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .login .loginbtn button {
-  margin-left: 5%;
   line-height: 2.1rem;
-  width: 90%;
+  width: 100%;
   text-align: center;
   background-color: #c63636;
   color: #fff;
@@ -153,8 +116,8 @@ html:hover {
   padding: 0 0.4rem;
 }
 .push .phone {
-  position: relative;
-  padding: 0.6rem 0;
+  border-bottom: 1px solid #eaeaea ;
+  padding: 0.5rem 0;
 }
 .push .phone li {
   float: left;
@@ -164,60 +127,23 @@ html:hover {
 }
 .push .phone .takeIn input {
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 .push .phone .takeIn p {
   color: #fcc051;
+  margin-top: 0.2rem;
   text-indent: 0.2rem;
   font-size: 0.5rem;
 }
-.push .phone .change-number {
-  right: 0;
-  position: absolute;
+.push .phone .active {
   width: 3.2rem;
   font-size: 0.5rem;
   line-height: 1.3rem;
-  height: 1.3rem;
+  margin-top: 0.2rem;
   color: #c63636;
   border: 1px solid #c63636;
   border-radius: 2px;
   text-align: center;
-  cursor: pointer;
-}
-.push .phoneNumber{
-  border: 1px solid #c3c3c3;
-  width: 100%;
-  max-width: 722px;
-  display: none;
-  margin-right: 0.4rem;
-  position: absolute;
-  background-color: #fff;
-}
-.push .phoneNumber li{
-  width:100%;
-  border-bottom: 1px solid #eaeaea ;
-  height: 1.5rem;
-  line-height: 1.5rem;
-  padding: 0;
-  position: relative;
-  font-size: 0.7rem;
-  color: #676767;
-}
-.push .phoneNumber li:nth-child(4){
-  color: #c63636;
-  text-align: center;
-  border: none;
-}
-/*.push .phoneNumber .number{*/
-  /*font-size: 0.75rem;*/
-/*}*/
-.push .phoneNumber .name{
-  position: absolute;
-  color:#999;
-  right: 0;
-}
-.push .checkbox{
-  border-top: 1px solid #eaeaea ;
 }
 .push .checkbox li:nth-of-type(1) {
   border-right: 1px solid #eaeaea;
@@ -235,106 +161,76 @@ html:hover {
   font-size: 0.7rem;
   padding: 0.2rem 0.7rem;
 }
-.push .checkbox li i {
-  line-height: 0.5rem;
-  /*-webkit-transform: scale(2);*/
+.push .checkbox li a {
+  color: #676767;
   height: 0.5rem;
   width: 0.5rem;
   border-radius: 50%;
   border: 2px solid #fff;
   box-shadow: 0 0 2px 0 #000;
   display: inline-block;
-  text-align: center;
-  /*position: relative;*/
-}
-.push .checkbox>li>i>span {
-  display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color:#fff;
-  border-radius: 50%;
-  /*display: none;*/
-}
-.push .checkbox span.disc{
-  background-color:#c63636;
 }
 .push .moneyList {
   margin-top: 0.7rem;
   font-size: 0;
 }
 .push .moneyList a {
-  width: 30%;
-  height: 3rem;
+  width: 3.98rem;
+  height: 2.65rem;
   border: 2px solid #eaeaea;
   border-radius: 0.2rem;
   display: inline-block;
   margin-bottom: 0.55rem;
-  margin-right: 5% ;
+  margin-right: 1.61rem ;
   padding: 0.6rem 0;
   color: #676767;
 }
-.push .moneyList a:link {
-  color: #c63636;
-  border-color: #c63636;
-}
-.push .moneyList a:hover {
-  color: #c63636;
-  border-color: #c63636;
-}
-.push .moneyList .active {
-  color: #c63636;
-  border-color: #c63636;
-}
-.push .moneyList a:active {
-  color: #c63636;
-  border-color: #c63636;
-}
-
 .push .moneyList a h4,
 .push .moneyList a p {
   width: 100%;
   text-align: center;
 }
-.push .moneyList a p{
-  margin-top: 0.2rem;
-}
 .push .moneyList a h4 {
   font-weight: lighter;
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 .push .moneyList a p {
-  font-size: 0.6rem;
+  font-size: 0.4rem;
 }
 .push .moneyList a:nth-of-type(3n) {
   margin-right: 0;
 }
-
-.aLink {
-  max-width: 750px;
+.push .moneyList .active {
+  color: #c63636;
+  border-color: #c63636;
+}
+.push .aLink {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 2.2rem;
   line-height: 2.2rem;
   background-color: #c63636;
   font-size: 0;
 }
-.aLink a {
+.push .aLink a {
   width: 50%;
+  vertical-align: middle;
   font-size: 0.65rem;
   text-align: center;
   display: inline-block;
   color: #fff;
 }
-.aLink a .iconfont {
+.push .aLink a .iconfont {
   font-size: 0.9rem;
   font-weight: lighter;
 }
-.aLink a:nth-of-type(1) {
+.push .aLink a:nth-of-type(1) {
   border-right: 1px solid #fff;
 }
 .account .goback {
-  height: 1.5rem;
+  height: 1.3rem;
   background: url("../img/image/cheaptist.png") no-repeat center center;
   background-size: 46% auto;
   background-color: #e06c6c;
@@ -348,13 +244,12 @@ html:hover {
   text-align: center;
   border: 1px solid #fff;
   line-height: 0.9rem;
-  width: 2rem;
+  width: 1.75rem;
   float: right;
-  margin: 0.2rem 0.5rem 0 0;
+  margin: 0.15rem 0.5rem 0 0;
   border-radius: 2px;
 }
 .account .goback .history {
-  font-size: 0.8rem;
   vertical-align: middle;
   margin-left: 0.5rem;
 }
@@ -362,7 +257,7 @@ html:hover {
   position: relative;
   height: 8.5rem;
   background: url("../img/image/tiancangcang.jpg") no-repeat center center;
-  background-size: 100%;
+  background-size: auto 100%;
 }
 .account .header h4 {
   position: absolute;
@@ -373,13 +268,11 @@ html:hover {
   line-height: 1.3rem;
   font-size: 0.6rem;
   text-align: center;
-  font-weight: 400;
 }
 .account .header .imgbox {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
   top: 0.7rem;
   width: 5.5rem;
   height: 5.5rem;
@@ -389,7 +282,6 @@ html:hover {
 }
 .account .header .imgbox img {
   width: 100%;
-  height: 100%;
 }
 .account .newList {
   width: 15.2rem;
@@ -415,10 +307,8 @@ html:hover {
   background: #c63636;
 }
 .record .goback {
-  padding: 0 0.4rem;
   width: 100%;
-  /*position: fixed;*/
-  display: block;
+  position: fixed;
   top: 0;
   height: 1.3rem;
   background: url("../img/image/cheaptist.png") no-repeat center center;
@@ -427,8 +317,6 @@ html:hover {
   margin-bottom: 13px;
 }
 .record .goback .iconfont {
-  position: absolute;
-  left: 0;
   line-height: 1.3rem;
   color: #f5f5f5;
   font-size: 0.6rem;
@@ -439,12 +327,11 @@ html:hover {
   margin-bottom: 3.2rem;
 }
 .record .Relist {
-  margin-bottom: 0.2rem;
   padding: 0.3rem;
   font-size: 0.7rem;
 }
 .record .Relist .month {
-  width: 4rem;
+  width: 2.65rem;
   color: #c63636;
   line-height: 0.8rem;
   text-align: center;
@@ -455,18 +342,11 @@ html:hover {
   margin-bottom: 0.3rem;
 }
 .record .Relist li .date {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 4rem;
-  font-size: 0.5rem;
-  text-align: center;
+  font-size: 0.4rem;
   background-color: #838383;
   color: #fff;
+  padding: 3px;
   display: inline-block;
-}
-.record .Relist li .date>span{
-  display: inline-block;
-  margin-right: 5px;
 }
 .record .Relist li .detail {
   font-size: 0;
@@ -477,10 +357,9 @@ html:hover {
   color: #737373;
 }
 .record .Relist li .detail .iconfont {
-  margin:0 0.15rem;
   float: left;
   line-height: 1.4rem;
-  width: 1.5rem;
+  width: 2rem;
   font-size: 1.4rem;
 }
 .record .Relist li .detail .dx {
@@ -497,9 +376,9 @@ html:hover {
   display: inline-block;
 }
 .record .Relist li .detail span:nth-of-type(1) {
-  margin-right: 0.3rem;
+  margin-right: 0.2rem;
 }
-.record .Relist li .detail span.suc {
+.record .Relist li .detail span:nth-last-child(1) {
   font-size: 0.5rem;
   float: right;
   width: 2.6rem;
@@ -508,25 +387,13 @@ html:hover {
   border-left: 1px solid #eaeaea;
   color: #63c673;
 }
-.record .Relist li .detail span.fail{
-  font-size: 0.5rem;
-  float: right;
-  width: 2.6rem;
-  min-width: 56px;
-  text-align: center;
-  border-left: 1px solid #eaeaea;
-  color: #999999;
-}
 .record .btnBox {
-  max-width: 730px;
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
   padding: 0.5rem 0;
   background: #fff;
-  width: 100%;
 }
 .record .btnBox .logOut {
   display: inline-block;
@@ -535,14 +402,13 @@ html:hover {
   text-align: center;
   border-radius: 4px;
   font-size: 1.1rem;
-  width: 100%;
+  width: 15.4rem;
   background: #c63636;
 }
 .pay {
   padding: 0 0.4rem;
 }
 .pay .actList {
-  cursor: pointer;
   display: block;
   padding: 0.5rem 0.8rem;
   border-bottom: 1px solid #ccc;
@@ -576,7 +442,6 @@ html:hover {
   text-align: center;
   border-radius: 4px;
   font-size: 1.1rem;
-  width: 100%;
-  max-width: 720px;
+  width: 15.4rem;
   background: #c63636;
 }

@@ -51,7 +51,7 @@ html:hover {
   color: #fff;
   bottom: 5.5rem;
   transform: translateX(-50%) scale(1);
--webkit-transform: translateX(-50%) scale(1);
+  -webkit-transform: translateX(-50%) scale(1);
 }
 
 .welcome .copyright{
@@ -378,8 +378,8 @@ html:hover {
 .account .header .imgbox {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   top: 0.7rem;
   width: 5.5rem;
   height: 5.5rem;
@@ -522,8 +522,8 @@ html:hover {
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   padding: 0.5rem 0;
   background: #fff;
   width: 100%;
