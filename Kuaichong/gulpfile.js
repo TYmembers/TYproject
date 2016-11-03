@@ -1,19 +1,27 @@
 var gulp = require('gulp'),
-    less = require('gulp-less'),
-    watch = require('gulp-watch'),
-    imageisux = require('gulp-imageisux');
+    minifycss = require('gulp-minify-css'),
+    uglify = require('gulp-uglify'),
+    notify = require('gulp-notify'),
+    rename=require('gulp-rename');
 
-gulp.task('lessIn',function(){
-    gulp.src('less/less.less')
-        .pipe(less())
-        .pipe(gulp.dest('css'))
+
+
+gulp.task('cssmin',function () {
+    return gulp.src('css/*.css')
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(minifycss())
+        .pipe(gulp.dest('lib'))
+        .pipe(notify({ message: 'Styles task complete' }));
 });
 
-gulp.task('img',function(){
-    gulp.src('./img/*')
-        .pipe(imageisux('./image',true))
+gulp.task('jsmin',function () {
+    return gulp.src('js/*.js')
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
+        .pipe(gulp.dest('lib'))
+        .pipe(notify({ message: 'Scripts task complete' }));
 });
 
-gulp.task('watchLess',function(){
-    gulp.watch('less/*.less',['lessIn'])
+gulp.task('default',function () {
+    gulp.start('cssmin','jsmin')
 });

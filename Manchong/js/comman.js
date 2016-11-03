@@ -64,7 +64,6 @@ function isPhone(phone){
 window.comman=comman;
 
 
-//弹窗样式
 
 
 

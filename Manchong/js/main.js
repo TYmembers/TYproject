@@ -43,7 +43,7 @@ $(document).ready(function () {
                         // wait=1;//清空计时器
                         log.codePhp=data.message;
                     }else{
-                        createAlert(tip[1])
+                        createAlert(data.message)
                     }//不成功时重新发送
                 }
             });
@@ -71,9 +71,9 @@ $(document).ready(function () {
                         }
                     }
                 })
-            }else{
+                } else {
                 createAlert(tip[4])
-            }
+                }
         });
     }
 

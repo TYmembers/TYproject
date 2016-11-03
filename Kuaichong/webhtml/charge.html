@@ -6,13 +6,13 @@
     <title>话费充值</title>
     <link rel="stylesheet" href="../css/pubilc.css">
     <link rel="stylesheet" href="../css/less.css">
-    <script src="../js/zepto.js"></script>
+    <script src="../lib/zepto.js"></script>
 </head>
 <body>
     <div class="push">
         <ul class="phone clearfix">
             <li class="takeIn">
-                <input type="text" id="rechange-phonenumber" pattern="[0-9]*" maxlength="11"/>
+                <input type="text" id="rechange-phonenumber"  maxlength="11" placeholder="请输入手机号码"/>
                 <p id="mobile-type"></p>
             </li>
             <li class="change-number" id="changenumber">切换号码</li>
@@ -73,12 +73,6 @@
         </ul>
     </div>
     <div class="aLink">
-        <a href="myaccount.html">
-            <i class="iconfont">
-                &#xe654;
-            </i>
-            我的账户
-        </a>
         <a href="record.html">
             <i class="iconfont">
                 &#xe72a;
@@ -86,8 +80,8 @@
             我的充值记录
         </a>
     </div>
-    <script src="../js/comman.js"></script>
-    <script src="../js/charge.js"></script>
+    <script src="../lib/comman.min.js"></script>
+    <script src="../lib/charge.js"></script>
 
 </body>
 </html>

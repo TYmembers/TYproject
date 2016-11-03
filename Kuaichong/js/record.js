@@ -167,6 +167,15 @@ $(document).ready(function () {
     var logout=$(".record .btnBox .logOut");
     logout.bind('click',function () {
         localStorage.clear();
-        location.href="../webhtml/welcome.html";
+        // location.href="../webhtml/welcome.html";
+
+            // if
+            // (confirm("您确定要关闭本页吗？")){
+            //     window.opener=null;
+            //     window.open('','_self');
+            //     window.close();
+            // }
+
+
     })
 });

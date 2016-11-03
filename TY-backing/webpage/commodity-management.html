@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="w-1204">
+            <div class="navtop clear">
+                <div class="logobox fl">
+                    <div class="logo fl"></div>
+                    <div class="name fl">9158充值</div>
+                </div>
+                <div class="adminbox fl">
+                    <span>欢迎您，杭州天缘网络技术有限公司</span>
+                    <a>退出</a>
+                </div>
+            </div>
+            <div class="nav clear">
+                <a href="user-order.html" class=" fl">普通用户订单</a>
+                <a href="agent-order.html" class="fl">代理商订单</a>
+                <a href="user-management.html" class=" fl">用户管理</a>
+                <a href="commodity-management.html" class=" fl">商品管理</a>
+                <a href="setup.html" class=" fl">充值设置</a>
+                <a href="account-management.html" class="active fl">账户管理</a>
+                <a href="statistics.html" class=" fl">统计报表</a>
+            </div>
+        </div>
+    </header>
+    <!--弹窗-->
+    <div class="alert-box commodity-box">
+        <div class="alert-header">添加商品<span class="close-btn hide">×</span></div>
+        <ul class="alert-body">
+            <li>
+                <span>运营商:</span>
+                <select class="selectOperator">
+                    <option value="中国移动">中国移动</option>
+                    <option value="中国联通">中国联通</option>
+                    <option value="中国电信">中国电信</option>
+                </select>
+            </li>
+            <li>
+                <span>面&nbsp;&nbsp;&nbsp;值:</span>
+                <input type="number" placeholder="10的整数倍" class="value">
+            </li>
+            <li>
+                <span>实际价:</span>
+                <input type="text" placeholder="保留两位小数" class="discount">
+            </li>
+            <li>
+                <span>时&nbsp;&nbsp;&nbsp;间:</span>
+                <select class="selectTime">
+                    <option value="24">24小时</option>
+                    <option value="48">48小时</option>
+                </select>
+            </li>
+            <div class="yes-btn hide">确定</div>
+        </ul>
+    </div>
+
+    <div class="w-1204 mainbox">
+        <div class="add-commodity"><span >添加商品</span><input type="button" value="+"></div>
+        <table class="order-table add-commodity-table">
+            <tr >
+                <th>序号</th>
+                <th>商品id</th>
+                <th>运营商</th>
+                <th>面值</th><th>实际价格</th>
+                <th>到帐时间</th><th>状态</th>
+                <th>操作</th>
+            </tr>
+            <!--<tr >-->
+                <!--<td>1</td><td>中国移动</td>-->
+                <!--<td>100</td>-->
+                <!--<td>98.65</td>-->
+                <!--<td>24小时</td><td>未上架</td>-->
+                <!--<td class="operation">-->
+                    <!--<input type="button" class="on" value="上架">-->
+                    <!--<input type="button" class="modify" value="修改">-->
+                    <!--<input type="button" class="delete" value="删除">-->
+                <!--</td>-->
+            <!--</tr>-->
+        </table>
+    </div>
+    <script src="../js/commodity.js"></script>
+</body>
+</html>

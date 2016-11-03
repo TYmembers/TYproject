@@ -15,140 +15,8 @@ body {
 html:hover {
   /* background: -webkit-radial-gradient(center 40%,circle,#ace,#fff,#c63737 80%);*/
 }
-.welcome {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  background: url("../img/image/circle.png") bottom center no-repeat;
-  background-size: 100% auto;
-  background-color: #c63737;
-}
-.welcome .logo {
-  width: 100%;
-  height: 16.75rem;
-}
-.welcome .logo .tianyuan {
-  width: 90%;
-  margin: 0.6rem 5% 0.5rem 5%;
-}
-.welcome .logo .cheap {
-  width: 80%;
-  margin: 0 10%;
-}
 
-.welcome .button {
-  max-width:700px ;
-  font-size: 1rem;
-  position: absolute;
-  width: 85%;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  left: 50%;
-  background: rgba(255, 255, 255, 0);
-  color: #fff;
-  bottom: 5.5rem;
-  transform: translateX(-50%) scale(1);
-  -webkit-transform: translateX(-50%) scale(1);
-}
 
-.welcome .copyright{
-  max-width:750px;
-  width:100%;
-  position: absolute;
-  bottom:20px;
-  color:#fff;
-  font-size: 0.5rem;
-  text-align: center;
-}
-.login .loginInput span,
-.login .loginInput input {
-  display: inline-block;
-}
-.login .loginInput .phone,
-.login .loginInput .code {
-  font-size: 0;
-  line-height: 2rem;
-}
-.login .loginInput .phone input,
-.login .loginInput .code input {
-  border-radius: 4px;
-  height: 2rem;
-  line-height: 2rem;
-  font-size: 0.6rem;
-}
-.login .loginInput .phone input[type='text'],
-.login .loginInput .code input[type='text'] {
-  text-indent: 10px;
-  border: 1px solid #eaeaea;
-}
-.login .loginInput .phone span,
-.login .loginInput .code span
-{
-  color: #666;
-  font-weight: bold;
-  width: 16%;
-  vertical-align: middle;
-  text-align: right;
-  font-size: 0.6rem;
-}
-.login i.iconfont{
-  font-size: 0.8rem;
-  line-height: 2rem;
-  color:#5ab75c;
-  font-weight: bold;
-  vertical-align: middle;
-  margin-left: 4%;
-  display: none;
-}
-.login .loginInput .phone {
-  padding-top: 0.5rem;
-}
-.login .loginInput .phone input {
-  width: 73%;
-}
-.login .loginInput .code {
-  margin-top: 1rem;
-}
-.login .loginInput .code input[type='text'] {
-  width: 43%;
-}
-.login .loginInput .code .beforesend{
-  font-weight: 600;
-  font-size: 0.6rem;
-  width: 29%;
-  background-color: #aaa;
-  color: #fff;
-  margin-left: 0.2rem;
-  pointer-events: none;
-}
-.login .loginInput .code .sendcode{
-  font-weight: 600;
-  font-size: 0.6rem;
-  width: 29%;
-  background-color: #ffb31f;
-  color: #fff;
-  margin-left: 0.2rem;
-  pointer-events: all;
-}
-.login .loginbtn {
-  position: fixed;
-  bottom: 0.5rem;
-  width: 100%;
-  max-width: 750px;
-}
-.login .loginbtn button {
-  margin-left: 5%;
-  line-height: 2.1rem;
-  width: 90%;
-  text-align: center;
-  background-color: #c63636;
-  color: #fff;
-  font-size: 1.1rem;
-  border-radius: 6px;
-}
 .push {
   padding: 0 0.4rem;
 }
@@ -320,7 +188,7 @@ html:hover {
   font-size: 0;
 }
 .aLink a {
-  width: 50%;
+  width: 100%;
   font-size: 0.65rem;
   text-align: center;
   display: inline-block;
@@ -333,87 +201,7 @@ html:hover {
 .aLink a:nth-of-type(1) {
   border-right: 1px solid #fff;
 }
-.account .goback {
-  height: 1.5rem;
-  background: url("../img/image/cheaptist.png") no-repeat center center;
-  background-size: 46% auto;
-  background-color: #e06c6c;
-}
-.account .goback .loginOut,
-.account .goback .history {
-  color: #fff;
-  font-size: 0.5rem;
-}
-.account .goback .loginOut {
-  text-align: center;
-  border: 1px solid #fff;
-  line-height: 0.9rem;
-  width: 2rem;
-  float: right;
-  margin: 0.2rem 0.5rem 0 0;
-  border-radius: 2px;
-}
-.account .goback .history {
-  font-size: 0.8rem;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-}
-.account .header {
-  position: relative;
-  height: 8.5rem;
-  background: url("../img/image/tiancangcang.jpg") no-repeat center center;
-  background-size: 100%;
-}
-.account .header h4 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  line-height: 1.3rem;
-  font-size: 0.6rem;
-  text-align: center;
-  font-weight: 400;
-}
-.account .header .imgbox {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  top: 0.7rem;
-  width: 5.5rem;
-  height: 5.5rem;
-  border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.4);
-  overflow: hidden;
-}
-.account .header .imgbox img {
-  width: 100%;
-  height: 100%;
-}
-.account .newList {
-  width: 15.2rem;
-  height: 12.95rem;
-  background: #CCC;
-  margin: 0.2rem auto;
-  overflow-x: hidden;
-}
-.account .newList ul li {
-  height: 6rem;
-  background-color: #666;
-  margin-bottom: 0.5rem;
-}
-.account .about {
-  width: 15.2rem;
-  line-height: 2.2rem;
-  margin: 0 auto;
-  color: #fff;
-  border-radius: 6px;
-  display: block;
-  text-align: center;
-  font-size: 1rem;
-  background: #c63636;
-}
+
 .record .goback {
   padding: 0 0.4rem;
   width: 100%;

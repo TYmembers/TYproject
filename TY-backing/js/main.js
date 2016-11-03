@@ -170,7 +170,7 @@ $(document).ready(function () {
     }
 
 //公共弹窗
-    var tip=["输入不能为空!", "还未添加任何权限"];
+    var tip=["输入不能为空!", "还未添加任何权限",'确定要删除吗'];
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
         var $alertheader=$(" <div class='alert-header'>!! 重要提示</div>");
@@ -351,5 +351,7 @@ $(document).ready(function () {
 
     }
 
+    window.myAlert=myAlert();
+    window.tip=tip;
     init();
 });
