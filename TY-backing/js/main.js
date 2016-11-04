@@ -173,7 +173,10 @@ $(document).ready(function () {
     var tip=["输入不能为空!", "还未添加任何权限",'确定要删除吗'];
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
-        var $alertheader=$(" <div class='alert-header'>!! 重要提示</div>");
+        var $alertheader=$(" <div class='alert-header'>" +
+            "<span>!! 重要提示</span>" +
+            "<span>×</span>" +
+            "</div>");
         var $alertbody=$("<div class='alert-body'></div>" );
         var $p=$("<p>"+tip+"</p>");
         var $yes=$("<div class='yes-btn'>确定</div>");

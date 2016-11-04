@@ -243,7 +243,6 @@
         delBtn.bind('click',function () {
             var currentTable=$(this).parents('.add-commodity-table');
             var currentTr=currentTable.find('tr').has('td');
-            myAlert(tip[2]);
                 $.ajax({
                 type: "post",
                 data:{
@@ -253,6 +252,7 @@
                 datatype: "json",
                 success: function (datas) {
                     if (datas.code==1){
+                        myAlert(tip[2]);
                         currentTr.remove();
                         var dataInt=datas.content;
                         function sortNumber(a,b)//排序，已上架的靠前排
