@@ -23,16 +23,46 @@
                 <a href="user-order.html" class=" fl">普通用户订单</a>
                 <a href="agent-order.html" class="fl">代理商订单</a>
                 <a href="user-management.html" class=" fl">用户管理</a>
-                <a href="commodity-management.html" class=" fl">商品管理</a>
+                <a href="commodity-management.html" class="active fl">商品管理</a>
                 <a href="setup.html" class=" fl">充值设置</a>
-                <a href="account-management.html" class="active fl">账户管理</a>
+                <a href="account-management.html" class=" fl">账户管理</a>
                 <a href="statistics.html" class=" fl">统计报表</a>
             </div>
         </div>
     </header>
-    <!--弹窗-->
+    <!--添加商品弹窗-->
     <div class="alert-box commodity-box">
         <div class="alert-header">添加商品<span class="close-btn hide">×</span></div>
+        <ul class="alert-body">
+            <li>
+                <span>运营商:</span>
+                <select class="selectOperator">
+                    <option value="中国移动">中国移动</option>
+                    <option value="中国联通">中国联通</option>
+                    <option value="中国电信">中国电信</option>
+                </select>
+            </li>
+            <li>
+                <span>面&nbsp;&nbsp;&nbsp;值:</span>
+                <input type="number" placeholder="10的整数倍" class="value">
+            </li>
+            <li>
+                <span>实际价:</span>
+                <input type="text" placeholder="保留两位小数" class="discount">
+            </li>
+            <li>
+                <span>时&nbsp;&nbsp;&nbsp;间:</span>
+                <select class="selectTime">
+                    <option value="24">24小时</option>
+                    <option value="48">48小时</option>
+                </select>
+            </li>
+            <div class="yes-btn hide">确定</div>
+        </ul>
+    </div>
+<!--修改商品弹窗-->
+    <div class="alert-box commodity-box-modify">
+        <div class="alert-header">修改商品<span class="close-btn hide">×</span></div>
         <ul class="alert-body">
             <li>
                 <span>运营商:</span>

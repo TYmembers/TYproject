@@ -252,43 +252,53 @@ header {
   font-size: 20px;
   font-weight: bold;
 }
-.commodity-box {
+.commodity-box,
+.commodity-box-modify {
   display: none;
   margin-left: -150px;
   width: 300px;
   height: auto;
 }
-.commodity-box ul.alert-body {
+.commodity-box ul.alert-body,
+.commodity-box-modify ul.alert-body {
   margin-top: 10px;
 }
-.commodity-box ul.alert-body li {
+.commodity-box ul.alert-body li,
+.commodity-box-modify ul.alert-body li {
   margin-top: 10px;
   height: 24px;
   font-size: 16px;
 }
 .commodity-box ul.alert-body li input,
+.commodity-box-modify ul.alert-body li input,
 .commodity-box ul.alert-body li select,
-.commodity-box ul.alert-body li span {
+.commodity-box-modify ul.alert-body li select,
+.commodity-box ul.alert-body li span,
+.commodity-box-modify ul.alert-body li span {
   height: 24px;
   display: inline-block;
   width: 120px;
   font-size: 14px;
   color: #666;
 }
-.commodity-box ul.alert-body li span {
+.commodity-box ul.alert-body li span,
+.commodity-box-modify ul.alert-body li span {
   text-align: right;
   width: 60px;
   font-size: 16px;
 }
-.commodity-box ul.alert-body li select {
+.commodity-box ul.alert-body li select,
+.commodity-box-modify ul.alert-body li select {
   border: 1px solid #4598d0;
 }
-.commodity-box ul.alert-body li input {
+.commodity-box ul.alert-body li input,
+.commodity-box-modify ul.alert-body li input {
   outline: none;
   border: 1px solid #4598d0;
   border-radius: 0;
 }
-.commodity-box ul.alert-body .yes-btn {
+.commodity-box ul.alert-body .yes-btn,
+.commodity-box-modify ul.alert-body .yes-btn {
   width: 100%;
   margin-top: 20px;
   font-weight: 700;

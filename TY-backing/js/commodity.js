@@ -21,7 +21,7 @@
 
         var commanalert={};
         commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
-        commanalert.box=$(".comman-alert");//弹窗盒子
+        commanalert.box=$(".comman-alert");//弹窗盒子增加
 
         commanalert.confirm.bind("click",function () {
             commanalert.box.hide();
@@ -65,13 +65,9 @@
     //添加商品
     function activeAlert() {
         var addBtn=$(".add-commodity");//添加按钮
-        commodity.box=$(".commodity-box");//商品弹窗
+        commodity.box=$(".commodity-box");//添加商品弹窗
         commodity.close=$(".commodity-box .close-btn");//两个关闭按钮按钮
         commodity.confirm=$(".commodity-box .yes-btn");//确定按钮
-        commodity.value=$(".commodity-box input.value");//面值
-        commodity.discount=$(".commodity-box input.discount");//折后价
-        commodity.operator=$('.commodity-box .selectOperator');//运营商
-        commodity.time =$(".commodity-box .selectTime");//充值价钱
 
 
         //添加商品
@@ -81,6 +77,11 @@
 
             //发送数据，生成一行表格，默认未上架
             commodity.confirm.bind("click",function () {
+
+                commodity.value=$(".commodity-box input.value");//面值
+                commodity.discount=$(".commodity-box input.discount");//折后价
+                commodity.operator=$('.commodity-box .selectOperator');//运营商
+                commodity.time =$(".commodity-box .selectTime");//充值时间
                 var ajaxData={
                     operator:commodity.operator.val(),
                     value:commodity.value.val(),
@@ -97,6 +98,8 @@
                         if (datas.code==1){
                             var data=datas.content;
                             createTR(data);//成功时生成一行表格
+                            modifyData();
+                            deleteData();
                             commodity.box.hide();
                         }else{
                             alert(datas.message);
@@ -112,7 +115,8 @@
     function closeAlert() {
         commodity.close.bind("click",function () {
             commodity.box.hide();
-        })
+        });
+
     }
     // 根据数据生成  每一行表格
     function createTR(data) {
@@ -188,11 +192,22 @@
     //修改，已上架和下架的都可以修改，局部刷新
     function modifyData() {
         var modifyBtn=$(".add-commodity-table input.modify");//修改按钮
+        commodity.modifyBox=$(".commodity-box-modify");//修改商品弹窗
+        commodity.modifyClose=$(".commodity-box-modify .close-btn");
+        commodity.modifyConfirm=$(".commodity-box-modify .yes-btn");//确定按钮
         modifyBtn.bind('click',function () {
             var tds=$(this).parent('td').siblings('td');
-            commodity.box.show();
-            closeAlert();//关闭弹窗
-            commodity.confirm.bind("click",function () {
+            commodity.modifyBox.show();
+            commodity.modifyClose.bind("click",function () {
+                console.log(11111);
+                commodity.modifyBox.hide();
+            });
+
+            commodity.modifyConfirm.bind("click",function () {
+                commodity.value=$(".commodity-box-modify input.value");//面值
+                commodity.discount=$(".commodity-box-modify input.discount");//折后价
+                commodity.operator=$('.commodity-box-modify .selectOperator');//运营商
+                commodity.time =$(".commodity-box-modify .selectTime");//充值时间
                 var modifiedData={
                     operator:commodity.operator.val(),
                     value:commodity.value.val(),
@@ -212,7 +227,7 @@
                             tds.eq(3).text(modifiedData.value);//面值
                             tds.eq(4).text(modifiedData.discount);//折扣
                             tds.eq(5).text(modifiedData.time);//到帐时间
-                            commodity.box.hide();
+                            commodity.modifyBox.hide();
                         }else{
                             alert(datas.message);
                         }
