@@ -7,6 +7,8 @@
     commodity.state = ["未上架","已上架"];
     commodity.shelves=["上架","下架"];
     var tip=["输入不能为空!", "还未添加任何权限",'确定要删除吗'];
+
+
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
         var $alertheader=$(" <div class='alert-header'>!! 重要提示</div>");
@@ -277,15 +279,17 @@
         $commanalert.append($alertheader);
         $commanalert.append($alertbody);
         $("header").after($commanalert);
+
     }
-        var commanalert={};
-        commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
-        commanalert.close = $('.comman-alert .close-icon');
-        commanalert.box=$(".comman-alert");//弹窗盒子
+    var commanalert={};
+    commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
+    commanalert.close = $('.comman-alert .close-icon');
+    commanalert.box=$(".comman-alert");//弹窗盒子
 
         commanalert.close.bind('click',function () {
             commanalert.box.hide();
         });
+
         commanalert.confirm.bind("click",function () {
             commanalert.box.hide();
         });
