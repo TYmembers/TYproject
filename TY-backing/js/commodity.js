@@ -34,32 +34,36 @@
         activeAlert();//添加商品,出现弹窗
 
     }
-//加载表格   初始状态
+//加载表格   初始状态,全局
     function createTable() {
         $(document).ready(function () {
-            $.ajax({
-                type:"get",
-                url:"../json/commodity.json",
-                datatype:"json",
-                success:function (datas) {
-                    if (datas.code==1){
-                        var dataInt=datas.content;
-                        function sortNumber(a,b)//排序，已上架的靠前排
-                        {
-                            return b.state - a.state
+            var currentTable=$('.add-commodity-table');
+            var currentTr=currentTable.find('tr').has('td');
+            currentTr.remove();
+                $.ajax({
+                    type:"get",
+                    url:"../json/commodity.json",
+                    datatype:"json",
+                    success:function (datas) {
+                        if (datas.code==1){
+                            var dataInt=datas.content;
+                            function sortNumber(a,b)//排序，已上架的靠前排
+                            {
+                                return b.state - a.state
+                            }
+                            var data=dataInt.sort(sortNumber);
+                            $.each(data, function (i,item) {
+                                createTR(item);//创建表格
+                            });
+                            putAway();//上架,下架   考虑若是下面的，则需要重新排序
+                            modifyData();
+                            deleteData();
+                        }else{
+                            alert(datas.message);
                         }
-                        var data=dataInt.sort(sortNumber);
-                        $.each(data, function (i,item) {
-                            createTR(item);//创建表格
-                        });
-                        putAway();//上架,下架   考虑若是下面的，则需要重新排序
-                        modifyData();
-                        deleteData();
-                    }else{
-                        alert(datas.message);
                     }
-                }
-            });
+                });
+
         })
     }
     //添加商品
@@ -96,11 +100,9 @@
                     datatype:"json",
                     success:function (datas) {
                         if (datas.code==1){
-                            var data=datas.content;
-                            createTR(data);//成功时生成一行表格
-                            modifyData();
-                            deleteData();
                             commodity.box.hide();
+                            createTable();
+
                         }else{
                             alert(datas.message);
                         }
@@ -120,11 +122,6 @@
     }
     // 根据数据生成  每一行表格
     function createTR(data) {
-        // var currentTable=$(this).parents('.add-commodity-table');
-        // var currentTr=currentTable.find('tr').has('td');
-        // if (currentTr.length){
-        //     currentTr.remove();
-        // }else{
             var table=$(".add-commodity-table");
             var exisTr=$(".add-commodity-table tr").length;
             var tr=$("<tr></tr>");
@@ -155,9 +152,6 @@
     function putAway() {
         var putawayBtn=$(".add-commodity-table input.on");
         putawayBtn.bind('click',function () {
-            var currentTable=$(this).parents('.add-commodity-table');
-            var currentTr=currentTable.find('tr').has('td');
-
                 $.ajax({
                     type: "post",
                     data:{
@@ -168,18 +162,7 @@
                     datatype: "json",
                     success: function (datas) {
                         if (datas.code==1){
-                            currentTr.remove();
-                            var dataInt=datas.content;
-                            function sortNumber(a,b)//排序，已上架的靠前排
-                            {
-                                return b.state - a.state
-                            }
-                            var data=dataInt.sort(sortNumber);
-                            $.each(data, function (i,item) {
-                                //先清空已经存在的表格
-                                createTR(item);
-                                // putAway();//上架,下架   考虑若是下面的，则需要重新排序
-                            })
+                            createTable();
                         }else{
                             alert(datas.message);
                         }
@@ -197,9 +180,16 @@
         commodity.modifyConfirm=$(".commodity-box-modify .yes-btn");//确定按钮
         modifyBtn.bind('click',function () {
             var tds=$(this).parent('td').siblings('td');
+            var tdDatas=[];
+            for (var x=2;x<=6;x++ ){
+                tdDatas.push(tds.eq(x).text());
+            }
+            $('.commodity-box-modify .selectOperator').val(tdDatas[0]);
+            $(".commodity-box-modify input.value").val(tdDatas[1]);
+            $(".commodity-box-modify input.discount").val(tdDatas[2]);
+            $(".commodity-box-modify .selectTime").val(tdDatas[3]);
             commodity.modifyBox.show();
             commodity.modifyClose.bind("click",function () {
-                console.log(11111);
                 commodity.modifyBox.hide();
             });
 
@@ -226,8 +216,9 @@
                             tds.eq(2).text(modifiedData.operator);//运营商
                             tds.eq(3).text(modifiedData.value);//面值
                             tds.eq(4).text(modifiedData.discount);//折扣
-                            tds.eq(5).text(modifiedData.time);//到帐时间
+                            tds.eq(5).text(modifiedData.time+"小时");//到帐时间
                             commodity.modifyBox.hide();
+                            // createTable();
                         }else{
                             alert(datas.message);
                         }
@@ -248,23 +239,23 @@
                 data:{
                     id:$(this).parent("td").siblings('td.id').text()//商品
                 },
-                url: "../json/commodity.json",
+                url: "../json/delete.json",
                 datatype: "json",
                 success: function (datas) {
                     if (datas.code==1){
-                        myAlert(tip[2]);
-                        currentTr.remove();
-                        var dataInt=datas.content;
-                        function sortNumber(a,b)//排序，已上架的靠前排
-                        {
-                            return b.state - a.state
-                        }
-                        var data=dataInt.sort(sortNumber);
-                        $.each(data, function (i,item) {
-                            //先清空已经存在的表格
-                            createTR(item);
-                            // putAway();//上架,下架   考虑若是下面的，则需要重新排序
-                        })
+                        confirmAlert(tip[2]);
+                        var commanalert={};
+                        commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
+                        commanalert.close = $('.comman-alert .close-icon');
+                        commanalert.box=$(".comman-alert");//弹窗盒子
+
+                        commanalert.close.bind('click',function () {
+                            commanalert.box.hide();
+                        });
+                        commanalert.confirm.bind("click",function () {
+                            commanalert.box.hide();
+                            createTable();
+                        });
                     }else{
                         alert(datas.message);
                     }
@@ -272,5 +263,34 @@
             })
         })
     }
+    //提示确定要删除的弹窗
+    function confirmAlert(tip) {
+        var $commanalert = $(" <div class='comman-alert'></div>");
+        var $alertheader = $(" <div class='alert-header'>重要提示</div>");
+        var $closeicon = $("<span class='close-icon'>×</span>");
+        var $alertbody = $("<div class='alert-body'></div>");
+        var $p = $("<p>" + tip + "</p>");
+        var $yes = $("<div class='yes-btn'>确定</div>");
+        $alertbody.append($p);
+        $alertbody.append($yes);
+        $alertheader.append($closeicon);
+        $commanalert.append($alertheader);
+        $commanalert.append($alertbody);
+        $("header").after($commanalert);
+    }
+        var commanalert={};
+        commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
+        commanalert.close = $('.comman-alert .close-icon');
+        commanalert.box=$(".comman-alert");//弹窗盒子
+
+        commanalert.close.bind('click',function () {
+            commanalert.box.hide();
+        });
+        commanalert.confirm.bind("click",function () {
+            commanalert.box.hide();
+        });
+
+
+
    init();
 })();

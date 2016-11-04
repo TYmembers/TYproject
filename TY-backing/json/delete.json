@@ -1,0 +1,21 @@
+{
+  "code": 1,
+  "content": [
+    {
+      "id": "1",
+      "operator": "中国移动",
+      "value": "100",
+      "discount": "98.95",
+      "time": "24",
+      "state": 1
+    },
+    {
+      "id": "2",
+      "operator": "中国联通",
+      "value": "50",
+      "discount": "48.95",
+      "time": "48",
+      "state": 0
+    }
+  ]
+}
