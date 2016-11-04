@@ -8,8 +8,7 @@ $(document).ready(function () {
     recharge.type=$("#mobile-type");//号码运营商
     recharge.changeBtn=$("#changenumber");//更改号码
     recharge.numberBefore=$(".push>.phoneNumber");//号码记录
-    // recharge.numberList=$(".push>.phoneNumber>li.newli");
-    // recharge.clearNum=$(".push>.phoneNumber>li.clear");//清除充值记录
+
     recharge.time=$(".checkbox>li");//到账时间
     recharge.icon=$(".checkbox>li>i"); //选择框
     recharge.price=$(".push .moneyList a");//选择价钱
@@ -46,8 +45,9 @@ $(document).ready(function () {
                     recharge.linum=$(".push>.phoneNumber>li.newli");
                     recharge.linum.bind("click",function () {
                         recharge.phoneNumber.val($(this).text());
-                        getMobileOperation();
                         recharge.numberBefore.remove($(this).children()).hide();
+                        getMobileOperator();
+
 
                     });
                     //清空历史充值号码
@@ -64,7 +64,7 @@ $(document).ready(function () {
 
     //  验证手机号码的归属地
 
-            function getMobileOperation() {
+            function getMobileOperator() {
             if (isPhone(recharge.phoneNumber.val()) ){
                 recharge.numberBefore.hide();
                 $.ajax({
@@ -90,25 +90,27 @@ $(document).ready(function () {
                             createAlert(tip[3]);//正确字段查不到归属地时
                         }
                     }
-                });
+                })
+
             }else{
                 createAlert(tip[1]);
             }
         }
 
         if (recharge.phoneNumber.val().length==11){
-            getMobileOperation();
+            getMobileOperator();
         }else{
-            getMobileOperation =null;
+            getMobileOperator =null;
         }
 
     // }
+//获取手机号码可以绑定的套餐
 
 
     //输入切换号码验证归属地
     recharge.phoneNumber[0].onkeyup=function () {
         if (recharge.phoneNumber.val().length==11) {
-            getMobileOperation();
+            getMobileOperator();
         }
     };
 
