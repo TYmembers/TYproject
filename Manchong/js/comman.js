@@ -41,16 +41,18 @@ function createAlert(tip) {
 //倒计时
 wait=60;
 function time(o) {
-    o.removeClass("sendcode").addClass("beforesend");
-    o.val("重新发送(" + wait + ")");
-    wait--;
-    var x=setTimeout(function() {
-            time(o);
-        },
-        1000);
     if (wait==0){
         clearTimeout(x);
         o.toggleClass("sendcode").val("验证码");
+        wait=60;
+    }else{
+        o.removeClass("sendcode").addClass("beforesend");
+        o.val("重新发送(" + wait + ")");
+        wait--;
+        var x=setTimeout(function() {
+                time(o);
+            },
+            1000);
     }
 
 }

@@ -65,20 +65,21 @@ $(document).ready(function () {
             record.icon2=$("<i class='iconfont lt'>&#xe50c;</i>");//联通图标
             record.icon3=$("<i class='iconfont yd'>&#xe501;</i>");//移动图标
             record.span3=$("<span class='span3'></span>");
-            record.span3.text("充值话费"+parseInt(item.recharge)+"元");//多少钱
+            record.span3.text("充值"+item.type+parseInt(item.worth)+"元");//多少钱
             record.span4=$("<span></span>");
             record.span4.text("充值号码"+item.tel);//号码
             record.span5=$("<span></span>");
-            if (item.state ==1){
-                record.span5.addClass("suc").text('充值成功')
+            if (item.state =="充值成功"){
+                record.span5.addClass("suc").text(item.state)
             }else {
-                record.span5.addClass('fail').text('充值失败')
+                record.span5.addClass('fail').text(item.state)
             }
 
             switch (item.operator)
             {
                 case "中国电信":
                     record.icon=record.icon1;
+
                     break;
                 case "中国联通":
                     record.icon=record.icon2;
@@ -166,7 +167,23 @@ $(document).ready(function () {
 // 退出登录
     var logout=$(".record .btnBox .logOut");
     logout.bind('click',function () {
-        localStorage.clear();
-        location.href="../webhtml/welcome.html";
+        $.ajax({
+            method:'post',
+            url:'../json/login.json',
+            data:{
+                tel:localStorage.loginNumber,
+                tocken:localStorage.tocken
+            },
+            datatype:"json",
+            success:function (datas) {
+                if (datas.code==1){
+                    localStorage.clear();
+                    location.href = "../webhtml/welcome.html";
+                }else{
+                    createAlert(datas.message);
+                }
+
+            }
+        })
     })
 });

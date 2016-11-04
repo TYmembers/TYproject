@@ -9,7 +9,23 @@ $().ready(function () {
 
     account.welcome.text("欢迎您 , "+localStorage.loginNumber);
     account.logout.bind("click",function () {
-        localStorage.clear();
-        location.href="../webhtml/welcome.html";
+        $.ajax({
+            method:'post',
+            url:'../json/login.json',
+            data:{
+                tel:localStorage.loginNumber,
+                tocken:localStorage.tocken
+            },
+            datatype:"json",
+            success:function (datas) {
+                if (datas.code==1){
+                    localStorage.clear();
+                    location.href = "../webhtml/welcome.html";
+                }else{
+                    createAlert(datas.message);
+                }
+
+            }
+        })
     })
 });

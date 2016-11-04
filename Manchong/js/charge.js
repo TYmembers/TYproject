@@ -46,7 +46,9 @@ $(document).ready(function () {
                     recharge.linum=$(".push>.phoneNumber>li.newli");
                     recharge.linum.bind("click",function () {
                         recharge.phoneNumber.val($(this).text());
+                        getMobileOperation();
                         recharge.numberBefore.remove($(this).children()).hide();
+
                     });
                     //清空历史充值号码
                     recharge.lastli.bind("click",function () {
