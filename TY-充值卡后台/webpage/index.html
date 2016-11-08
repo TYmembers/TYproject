@@ -17,7 +17,7 @@
                 </div>
                 <div class="adminbox fl">
                     <span>欢迎您，</span><span class="theme">杭州天缘网络技术有限公司</span>
-                    <a href="login.html">退出</a>
+                    <a href="logout.html">退出</a>
                 </div>
             </div>
         </div>
@@ -30,147 +30,23 @@
                 <i class="icon slide">^</i>
             </div>
             <ul class="body">
-                <li class="h-40 "><a href="index.html">充值卡生成</a></li>
-                <li class="h-40"><a href="active.html">充值卡激活</a> </li>
-                <li class="h-40"><a href="record.html">充值记录</a></li>
-                <li class="h-40"><a href="">用户列表</a> </li>
-                <li class="h-40"><a href="">管理员管理</a> </li>
+                <li class="h-40"><a href="javascript:void(0);" href="generate.html" >充值卡生成</a></li>
+                <li class="h-40"><a href="javascript:void(0);" href="active.html">充值卡激活</a> </li>
+                <li class="h-40"><a href="javascript:void(0);" href="record.html" >充值记录</a></li>
+                <li class="h-40"><a href="javascript:void(0);" href="list.html" >用户列表</a> </li>
+                <li class="h-40"><a href="javascript:void(0);" href="admin.html" href="javascript:void(0);">管理员管理</a> </li>
             </ul>
         </section>
         <section class="content fl">
 
                 <ul class="nav clear">
-                    <li class=" fl">充值卡生成<span class="close point">×</span></li>
-                    <li class=" fl">充值卡激活<span class="close point">×</span></li>
-                    <li class=" fl">充值记录<span class="close point">×</span></li>
+                    <!--<li class=" fl active"><a href="generate.html">充值卡生成</a><span class="close point">×</span></li>-->
                     <!--<li class=" fl">用户列表<span class="close point">×</span></li>-->
                     <!--<li class=" fl">管理员管理<span class="close point">×</span></li>-->
                 </ul>
-            <div class="part part1">
-                <div class="query clear">
-                    <div class="form fl ">
-                        <strong>批次号:</strong><input type="text" class="batch" maxlength="6">
-                    </div>
-                    <div class="btn-box fl h-40">
-                        <input type="button" value="查询" class="bg-theme point check">
-                        <input type="button" value="清空" class="bg-theme point clear">
-                    </div>
-                </div>
-                <div class="tab-operation clear">
-                    <ul class="fl">
-                        <li class="fl bg-theme point generate">生成批次</li>
-                        <li class="fl bg-theme point delete">删除批次</li>
-                        <li class="fl bg-theme point export">导出批次</li>
-                        <li class="fl bg-theme point export-one">单批次导出</li>
-                    </ul>
-                    <div class="static fl">
-                        <div class="money fl">
-                            <span>累计面值金额:</span>
-                            <span class="theme"></span>
-                        </div>
-                        <div class="amout fl">
-                            <span>累计张数:</span>
-                            <span class="theme"></span>
-                        </div>
-                    </div>
-                </div>
-                <table class="generate-table">
-                    <tr>
-                        <th>全选</th><th><input type="checkbox"></th>
-                        <th>批次</th><th >开始序号</th>
-                        <th >结束序号</th><th >批次面值</th>
-                        <th >张数合计</th><th>面值总计</th>
-                        <th >状态</th><th>创建时间</th>
-                    </tr>
-                    <tr>
-                        <td class="number">1</td><td class="check"><input type="checkbox"></td>
-                        <td class="batch">100001</td><td class="start">000100</td>
-                        <td class="end">000200</td><td class="value">100</td>
-                        <td class="sheets">100</td><td  class="sum">10000</td>
-                        <td class="state">生成</td><td  class="create-time">2016-11-03   15:20:10</td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                    <tr>
-                        <td class="number"></td><td class="chek"><input type="checkbox"></td>
-                        <td class="batch"></td><td class="start"></td>
-                        <td class="end"></td><td class="value"></td>
-                        <td class="sheets"></td><td class="sum"></td>
-                        <td class="state"></td><td class="create-time"></td>
-                    </tr>
-                </table>
-                <ul class="paging clear">
-                    <li class="fl">
-                        <select name="branches">
-                            <option value="10">10</option>
-                        </select>
-                    </li>
-                    <li class="fl point theme">首页</li>
-                    <li class="fl point"><i class="icon pre "><</i></li>
-                    <li class="fl">
-                        <span>第</span>
-                        <input type="text" class="which-page" value="1">
-                        <span>共10页</span>
-                        <i class="go point">go>></i>
-                    </li>
-                    <li class="fl point"><i class="icon next">></i></li>
-                    <li class="fl point theme">尾页</li>
-                </ul>
-            </div>
+            <section class="part">
+                <p class="welcome">亲爱的管理员，欢迎进入充值卡平台后台！</p>
+            </section>
         </section>
     </div>
     <script src="../js/main.js"></script>

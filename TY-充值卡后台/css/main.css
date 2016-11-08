@@ -93,6 +93,12 @@ header {
   line-height: 40px;
   text-align: center ;
 }
+iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+  border: none;
+}
 .navtop {
   width: 100%;
 }
@@ -158,37 +164,39 @@ header {
 .nav a:hover {
   background-color: #c63636;
 }
-.base {
-  border: 1px solid #999;
-}
-.base .menu {
+.menu {
   min-height: 800px;
   height: 100%;
   background-color: #f7f6f5;
   width: 158px;
   font-weight: 700;
 }
-.base .menu .head {
+.menu .head {
   background-color: #f7f6f5;
   width: 100%;
   height: 40px;
   color: #15428b;
   border-bottom: 1px solid #999;
 }
-.base .menu ul.body li {
-  color: #555;
+.menu ul.body li {
   font-size: 16px;
   border-bottom: 1px solid #999;
 }
-.base .menu ul.body li.active {
+.menu ul.body li a {
+  color: #555;
+}
+.menu ul.body li.active {
   background-color: #c63636;
-  color: #fff;
   border-bottom: 1px solid #FFFFFF;
 }
-.base .content {
-  width: 1044px;
+.menu ul.body li.active a {
+  color: #fff;
 }
-.base .content .nav {
+.content {
+  width: 1044px;
+  min-height: 800px;
+}
+.content .nav {
   height: 40px;
   width: 100%;
   color: #fff;
@@ -197,8 +205,7 @@ header {
   background-color: #f7f6f5;
   padding-top: 5px ;
 }
-.base .content .nav li {
-  display: none;
+.content .nav li {
   border-radius: 5px;
   height: 30px;
   line-height: 30px;
@@ -208,7 +215,7 @@ header {
   background-color: #c63636;
   margin-right: 10px;
 }
-.base .content .nav li span.close {
+.content .nav li span.close {
   top: -2px;
   right: 5px;
   position: absolute;
@@ -219,27 +226,33 @@ header {
   height: 30px;
   line-height: 30px;
 }
-.base .content .part {
+.content .part {
   height: 100%;
   min-height: 760px;
 }
-.base .content .part .query {
+.content .part .welcome {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.content .part .query {
   border-bottom: 1px solid #999;
   background-color: #f7f6f5;
 }
-.base .content .part .query .form {
+.content .part .query .form {
   margin-right: 10px;
   height: 50px;
 }
-.base .content .part .query .form strong {
+.content .part .query .form strong {
   text-align: right;
   font-size: 16px;
   display: inline-block;
   width: 80px;
   margin-right: 10px;
 }
-.base .content .part .query .form input[type="text"],
-.base .content .part .query .form .date {
+.content .part .query .form input[type="text"],
+.content .part .query .form .date {
   display: inline-block;
   background-color: #fff;
   text-align: center;
@@ -247,10 +260,10 @@ header {
   margin-top: 10px;
   border: 1px solid #999999;
 }
-.base .content .part .query .form input {
+.content .part .query .form input {
   width: 100px;
 }
-.base .content .part .query .form select {
+.content .part .query .form select {
   width: 120px;
   background-color: #fff;
   text-align: center;
@@ -258,13 +271,13 @@ header {
   margin-top: 10px;
   border: 1px solid #999999;
 }
-.base .content .part .query .form input[type="date"] {
+.content .part .query .form input[type="date"] {
   width: 120px;
 }
-.base .content .part .query .btn-box {
+.content .part .query .btn-box {
   margin-left: 50px;
 }
-.base .content .part .query .btn-box input[type="button"] {
+.content .part .query .btn-box input[type="button"] {
   border-radius: 5px;
   margin-right: 10px;
   width: 80px;
@@ -274,18 +287,18 @@ header {
   font-size: 16px;
   font-weight: 600;
 }
-.base .content .part .query .record-btn-box {
+.content .part .query .record-btn-box {
   margin-left: 40px;
 }
-.base .content .part .tab-operation {
+.content .part .tab-operation {
   background-color: #f7f6f5;
   height: 46px;
   padding: 8px 10px;
 }
-.base .content .part .tab-operation ul {
+.content .part .tab-operation ul {
   height: 30px;
 }
-.base .content .part .tab-operation ul li {
+.content .part .tab-operation ul li {
   text-align: center;
   height: 30px;
   line-height: 30px;
@@ -294,31 +307,31 @@ header {
   width: 100px;
   border-radius: 5px ;
 }
-.base .content .part .tab-operation .static {
+.content .part .tab-operation .static {
   line-height: 30px;
   height: 30px;
   margin-left: 40px;
 }
-.base .content .part .tab-operation .static div {
+.content .part .tab-operation .static div {
   border-right: 1px solid #999999;
   margin-right: 20px;
 }
-.base .content .part .tab-operation .static div span.theme {
+.content .part .tab-operation .static div span.theme {
   display: inline-block;
   min-width: 60px;
   text-align: center;
 }
-.base .content .part table {
+.content .part table {
   color: #666;
   width: 100%;
   border: 1px solid #ddd;
   border-collapse: collapse;
 }
-.base .content .part table tr {
+.content .part table tr {
   border-bottom: 1px solid #ddd;
   margin: 0 5px;
 }
-.base .content .part table tr th {
+.content .part table tr th {
   background-color: #dddddd;
   font-size: 16px;
   text-align: center;
@@ -326,7 +339,7 @@ header {
   vertical-align: middle;
   border-bottom: 1px solid #ddd;
 }
-.base .content .part table tr th input[type="checkbox"] {
+.content .part table tr th input[type="checkbox"] {
   width: 16px;
   height: 16px;
   font-size: 16px;
@@ -335,17 +348,17 @@ header {
   box-sizing: border-box;
   color: #c63636;
 }
-.base .content .part table tr td {
+.content .part table tr td {
   border: 1px dotted #f1f1f1;
   text-align: center;
   height: 40px;
   vertical-align: middle;
   border-bottom: 1px solid #ddd;
 }
-.base .content .part table tr td select {
+.content .part table tr td select {
   color: #666;
 }
-.base .content .part table tr td input[type="checkbox"] {
+.content .part table tr td input[type="checkbox"] {
   background-color: #fff;
   width: 16px;
   height: 16px;
@@ -353,36 +366,36 @@ header {
   display: inline-block;
   box-sizing: border-box;
 }
-.base .content .part table tr td input[type="checkbox"]:checked {
+.content .part table tr td input[type="checkbox"]:checked {
   color: #c63636;
 }
-.base .content .part table tr.active {
+.content .part table tr.active {
   background-color: #eeeeff;
 }
-.base .content .part .paging {
+.content .part .paging {
   margin-top: 174px;
   background-color: #f1f1f1;
   height: 40px;
   padding: 5px 3px;
 }
-.base .content .part .paging li {
+.content .part .paging li {
   line-height: 30px;
   height: 30px;
   padding: 0 15px;
   border-right: 1px solid #d2d2d2;
 }
-.base .content .part .paging li select {
+.content .part .paging li select {
   display: inline-block;
   width: 50px;
   height: 24px;
   border: 1px solid #999999;
 }
-.base .content .part .paging li input.which-page {
+.content .part .paging li input.which-page {
   border: 1px solid #999;
   width: 60px;
   height: 24px;
   text-align: center;
 }
-.base .content .part .paging li i.go {
+.content .part .paging li i.go {
   color: #1b6dcf;
 }
