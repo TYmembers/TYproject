@@ -174,8 +174,8 @@ $(document).ready(function () {
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
         var $alertheader=$(" <div class='alert-header'>" +
-            "<span>!! 重要提示</span>" +
-            "<span>×</span>" +
+            "重要提示"+
+            "<span class='close-btn'>×</span>" +
             "</div>");
         var $alertbody=$("<div class='alert-body'></div>" );
         var $p=$("<p>"+tip+"</p>");
@@ -188,8 +188,12 @@ $(document).ready(function () {
 
         var commanalert={};
         commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
+        commanalert.close=$(".comman-alert .close-btn");//关闭按钮
         commanalert.box=$(".comman-alert");//弹窗盒子
 
+        commanalert.close.bind('click',function () {
+            commanalert.box.hide();
+        });
         commanalert.confirm.bind("click",function () {
             commanalert.box.hide();
         });

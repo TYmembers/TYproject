@@ -498,14 +498,14 @@ header {
 .mainbox ul.order-select {
   position: absolute;
   top: 0;
-  left: 92px;
+  left: 41px;
   display: none;
 }
 .mainbox ul.order-select li {
   height: 30px;
   background-color: rgba(74, 74, 74, 0.87);
   color: #fff;
-  width: 170px;
+  width: 160px;
   text-align: center;
   line-height: 30px;
   border-bottom: 1px solid #fff;

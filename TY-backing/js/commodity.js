@@ -35,6 +35,8 @@
 
         activeAlert();//添加商品,出现弹窗
 
+
+
     }
 //加载表格   初始状态,全局
     function createTable() {
@@ -60,6 +62,7 @@
                             putAway();//上架,下架   考虑若是下面的，则需要重新排序
                             modifyData();
                             deleteData();
+                            // activeAlert()
                         }else{
                             alert(datas.message);
                         }
@@ -70,49 +73,50 @@
     }
     //添加商品
     function activeAlert() {
-        var addBtn=$(".add-commodity");//添加按钮
-        commodity.box=$(".commodity-box");//添加商品弹窗
-        commodity.close=$(".commodity-box .close-btn");//两个关闭按钮按钮
-        commodity.confirm=$(".commodity-box .yes-btn");//确定按钮
+
+            var addBtn=$(".add-commodity");//添加按钮
+            commodity.box=$(".commodity-box");//添加商品弹窗
+            commodity.close=$(".commodity-box .close-btn");//两个关闭按钮按钮
+            commodity.confirm=$(".commodity-box .yes-btn");//确定按钮
 
 
-        //添加商品
-        addBtn.bind("click",function () {
-            commodity.box.show();
-            closeAlert();//关闭弹窗
+            //添加商品
+            addBtn.bind("click",function () {
+                commodity.box.show();
+                closeAlert();//关闭弹窗
 
-            //发送数据，生成一行表格，默认未上架
-            commodity.confirm.bind("click",function () {
+                //发送数据，生成一行表格，默认未上架
+                commodity.confirm.bind("click",function () {
+                    commodity.value=$(".commodity-box input.value");//面值
+                    commodity.discount=$(".commodity-box input.discount");//折后价
+                    commodity.operator=$('.commodity-box .selectOperator');//运营商
+                    commodity.time =$(".commodity-box .selectTime");//充值时间
+                    var ajaxData={
+                        operator:commodity.operator.val(),
+                        value:commodity.value.val(),
+                        discount:commodity.discount.val(),
+                        time:commodity.time.val(),
+                        state:0
+                    };
+                    $.ajax({
+                        type:"post",
+                        url:"../json/add.json",
+                        data: ajaxData,
+                        datatype:"json",
+                        success:function (datas) {
+                            if (datas.code==1){
+                                commodity.box.hide();
+                                createTable();
+                                location.replace(location.href);
 
-                commodity.value=$(".commodity-box input.value");//面值
-                commodity.discount=$(".commodity-box input.discount");//折后价
-                commodity.operator=$('.commodity-box .selectOperator');//运营商
-                commodity.time =$(".commodity-box .selectTime");//充值时间
-                var ajaxData={
-                    operator:commodity.operator.val(),
-                    value:commodity.value.val(),
-                    discount:commodity.discount.val(),
-                    time:commodity.time.val(),
-                    state:0
-                };
-                $.ajax({
-                    type:"post",
-                    url:"../json/add.json",
-                    data: ajaxData,
-                    datatype:"json",
-                    success:function (datas) {
-                        if (datas.code==1){
-                            commodity.box.hide();
-                            createTable();
-
-                        }else{
-                            alert(datas.message);
+                            }else{
+                                alert(datas.message);
+                            }
                         }
-                    }
-                });
-            })
-
+                    });
+                })
         });
+
 
     }
     //关闭弹窗
