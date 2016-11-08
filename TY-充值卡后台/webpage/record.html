@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天缘充值卡后台管理</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--//导航-->
+<header>
+    <div class="w-1204">
+        <div class="navtop clear">
+            <div class="logobox fl">
+                <div class="logo fl"></div>
+                <div class="name fl">天缘充值卡</div>
+            </div>
+            <div class="adminbox fl">
+                <span>欢迎您，</span><span class="theme">杭州天缘网络技术有限公司</span>
+                <a href="login.html">退出</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="clear w-1204 base">
+    <section class="menu fl">
+        <div class="head h-40 point">
+            <span>系统菜单</span>
+            <i class="icon slide">^</i>
+        </div>
+        <ul class="body">
+            <li class="h-40 "><a href="index.html">充值卡生成</a></li>
+            <li class="h-40"><a href="active.html">充值卡激活</a> </li>
+            <li class="h-40"><a href="record.html">充值记录</a></li>
+            <li class="h-40"><a href="">用户列表</a> </li>
+            <li class="h-40"><a href="">管理员管理</a> </li>
+        </ul>
+    </section>
+    <section class="content fl">
+
+        <ul class="nav clear">
+            <li class=" fl">充值卡生成<span class="close point">×</span></li>
+            <li class=" fl">充值卡激活<span class="close point">×</span></li>
+            <li class=" fl">充值记录<span class="close point">×</span></li>
+            <!--<li class=" fl">用户列表<span class="close point">×</span></li>-->
+            <!--<li class=" fl">管理员管理<span class="close point">×</span></li>-->
+        </ul>
+        <div class="part part3">
+            <div class="query clear">
+                <div class="form fl ">
+                    <strong>充值号码:</strong><input type="text" class="batch" maxlength="6">
+                </div>
+                <div class="form fl ">
+                    <strong>卡号:</strong><input type="text" class="batch" maxlength="6">
+                </div>
+                <div class="form fl ">
+                    <select id="recharge-state">
+                        <option value="all">全部</option>
+                        <option value="1">待扣款</option>
+                        <option value="2">扣款成功</option>
+                        <option value="3">扣款失败</option>
+                    </select>
+                </div>
+                <div class="form fl">
+                    <div class="date"><input type="date"></div>
+                    <span>—</span>
+                    <div class="date"> <input type="date"></div>
+
+                </div>
+                <div class="btn-box record-btn-box fl h-40">
+                    <input type="button" value="查询" class="bg-theme point check">
+                    <input type="button" value="清空" class="bg-theme point clear">
+                </div>
+            </div>
+            <div class="tab-operation clear">
+                <ul class="fl">
+                    <li class="fl bg-theme point ">今天</li>
+                    <li class="fl bg-theme point ">最近三天</li>
+                    <li class="fl bg-theme point ">最近一个月</li>
+                </ul>
+                <ul class="fr">
+                    <li class="fr bg-theme point output">导出</li>
+                </ul>
+
+            </div>
+            <table class="record-table">
+                <tr>
+                    <th>全选</th><th><input type="checkbox"></th>
+                    <th>卡号</th><th >密码</th>
+                    <th >充值手机号</th><th >充值金额</th>
+                    <th >状态</th><th>充值时间</th>
+                    <th>用户ID</th>
+                </tr>
+                <tr>
+                    <td class="number">1</td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number">10016666</td><td class="password">********</td>
+                    <td class="phone">13333333333</td><td class="value">100</td>
+                    <td class="state">待扣款</td><td  class="create-time">2016-11-03   15:20:10</td>
+                    <td>hhnnn</td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <ul class="paging clear">
+                <li class="fl">
+                    <select name="branches">
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li class="fl point theme">首页</li>
+                <li class="fl point"><i class="icon pre "><</i></li>
+                <li class="fl">
+                    <span>第</span>
+                    <input type="text" class="which-page" value="1">
+                    <span>共10页</span>
+                    <i class="go point">go>></i>
+                </li>
+                <li class="fl point"><i class="icon next">></i></li>
+                <li class="fl point theme">尾页</li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

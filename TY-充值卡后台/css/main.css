@@ -220,7 +220,6 @@ header {
   line-height: 30px;
 }
 .base .content .part {
-  display: none;
   height: 100%;
   min-height: 760px;
 }
