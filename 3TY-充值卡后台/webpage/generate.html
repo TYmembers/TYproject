@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天缘充值卡后台管理</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--//导航-->
+<!--增加弹窗-->
+<div class="add-box">
+    <div class="alert-header">增加批次<span class="close-btn hide">×</span></div>
+    <ul class="alert-body">
+        <li>
+            <span>批次号:</span>
+            <input type="text" maxlength="5" id="batchNumber">
+        </li>
+        <li>
+            <span>面&nbsp;&nbsp;&nbsp;值:</span>
+            <select id="cardValue">
+
+            </select>
+        </li>
+        <li>
+            <span>起始序号:</span>
+            <input type="text" maxlength="8" id="startNumber">
+        </li>
+        <li>
+            <span>结束序号:</span>
+            <input type="text" maxlength="8" id="endNumber">
+
+        </li>
+        <div class="btn hide">
+            <input type="button" class="yes" value="确定">
+            <input type="button" class="close-btn" value="取消">
+        </div>
+    </ul>
+</div>
+<!--//删除弹窗-->
+<div class="comman-alert del-box">
+    <div class="alert-header">天缘官方提醒您<span class="close-btn">×</span></div>
+    <div class="alert-body">
+        <p class="tip">您确定要删除此条数据吗？</p>
+        <div class="btn">
+            <input type="button" value="确定" class="yes">
+            <input type="button" value="取消" class="close-btn">
+        </div>
+    </div>
+</div>
+<div class="part part1">
+    <form class="query clear" action="" method="post" >
+        <div class="form fl ">
+            <strong>批次号:</strong><input type="text" class="clearObj" maxlength="5" name="batchNumber" pattern="[0-9]{5}" title="请输入5位数批次号">
+        </div>
+        <div class="btn-box fl h-40">
+            <input type="submit" value="查询" class="bg-theme point check">
+            <input type="button" value="清空" class="bg-theme point clearBtn">
+        </div>
+    </form>
+    <div class="tab-operation clear">
+        <ul class="fl">
+            <li class="fl bg-theme point generate">生成批次</li>
+            <li class="fl bg-theme point delete">删除批次</li>
+            <li class="fl bg-theme point export">导出批次</li>
+            <li class="fl bg-theme point export-one">单批次导出</li>
+        </ul>
+        <div class="static fr">
+            <div class="money fl">
+                <span>累计面值金额:</span>
+                <span class="theme"></span>
+            </div>
+            <div class="amout fl">
+                <span>累计张数:</span>
+                <span class="theme"></span>
+            </div>
+        </div>
+    </div>
+    <table class="generate-table">
+        <tr>
+            <th>全选</th><th><input type="checkbox" id="selectAll"></th>
+            <th>批次</th><th >开始序号</th>
+            <th >结束序号</th><th >批次面值</th>
+            <th >张数合计</th><th>面值总计</th>
+            <th >状态</th><th>创建时间</th>
+        </tr>
+        <tr>
+            <td class="number">1</td><td class="check"><input type="checkbox" name="flowid" value="1"></td>
+            <td class="batch">100001</td><td class="start">000100</td>
+            <td class="end">000200</td><td class="value">100</td>
+            <td class="sheets">100</td><td  class="sum">10000</td>
+            <td class="state">生成</td><td  class="create-time">2016-11-03   15:20:10</td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="2"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="3"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="4"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="5"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="6"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="7"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="8"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="9"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+        <tr>
+            <td class="number"></td><td class="chek"><input type="checkbox" name="flowid" value="10"></td>
+            <td class="batch"></td><td class="start"></td>
+            <td class="end"></td><td class="value"></td>
+            <td class="sheets"></td><td class="sum"></td>
+            <td class="state"></td><td class="create-time"></td>
+        </tr>
+    </table>
+    <ul class="paging clear">
+        <li class="fl">
+            <select name="branches">
+                <option value="10">10</option>
+            </select>
+        </li>
+        <li class="fl point theme">首页</li>
+        <li class="fl point"><i class="iconfont pre">&#xe6e7;</i></li>
+        <li class="fl">
+            <span>第</span>
+            <input type="text" class="which-page" value="1">
+            <span>共10页</span>
+            <i class="go point iconfont">G0>></i>
+        </li>
+        <li class="fl point"><i class="iconfont next">&#xe6e9;</i></li>
+        <li class="fl point theme">尾页</li>
+    </ul>
+</div>
+    <script src="../js/frame.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+login.html
+修改页面的话，我把用户协议的样式设置为不可见了，整体不影响页面，没有bug
+
+help.html
+加了个回到首页的按钮 //路径改下
+
+xieyi.html
+加了个回到首页的按钮 //路劲改下
+
+recharg_reacords.html
+删了模板引擎的使用直接改为html格式，产品要求嵌套上去 //里面的数据需要嵌套下。
+<i class="iconfont lt">&#xe608;</i> //联通logo
+<i class="iconfont yd">&#xe60a;</i> //移动logo
+<i class="iconfont dx">&#xe609;</i> //电信logo
+
+
+//以上是我修改的。以下逻辑你们需要处理下
+reg.html
+注册成功后要能直接登录，不是回到登录页面 //前端方面本来我用了cookie，但是没被你们采纳
+
+recharg_records.html
+退出登录，消除客户信息然后回到登录页面

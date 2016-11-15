@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天缘充值卡后台管理</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--激活卡号的弹窗-->
+<div class="active-box">
+    <div class="alert-header">激活卡信息<span class="close-btn hide">×</span></div>
+    <ul class="alert-body">
+
+        <li>
+            <span>起始卡号:</span>
+            <input type="text" maxlength="8" id="startCard" required="required">
+        </li>
+        <li>
+            <span>结束卡号:</span>
+            <input type="text" maxlength="8" id="endCard" required="required">
+
+        </li>
+        <div class="btn hide">
+            <input type="button" class="yes" value="确定">
+            <input type="button" class="close-btn" value="取消">
+        </div>
+    </ul>
+</div>
+
+
+<div class="part part2">
+            <form class="query clear" action="" method="post">
+                <div class="form fl ">
+                    <strong>批次号:</strong><input type="text" class="clearObj" maxlength="5" name="patchNumber" pattern="[0-9]{5}" title="请输入5位数批次号">
+                </div>
+                <div class="form fl ">
+                    <strong>卡号:</strong><input type="text" class="clearObj" maxlength="8" name="cardNumber" pattern="[0-9]{8}" title="请输入8位数卡号">
+                </div>
+                <div class="form fl ">
+                    <strong></strong>
+                    <select id="card-state" name="cardState">
+                        <option value="all">全部</option>
+                        <option value="1">创建未激活</option>
+                        <option value="2">已激活未充值</option>
+                        <option value="3">已激活已充值</option>
+                        <option value="4">锁定</option>
+                    </select>
+                </div>
+                <div class="btn-box fl h-40">
+                    <input type="submit" value="查询" class="bg-theme point check">
+                    <input type="button" value="清空" class="bg-theme point clearBtn">
+                </div>
+            </form>
+            <div class="tab-operation clear">
+                <ul class="fl">
+                    <li class="fl bg-theme point active">激活</li>
+                </ul>
+                <div class="static state-static fr">
+                    <div class="money fl">
+                        <span>创建未激活:</span>
+                        <span class="theme no-active">111</span>
+                    </div>
+                    <div class="amout fl">
+                        <span>已激活未充值:</span>
+                        <span class="theme sun-sheets active-no-recharge">111</span>
+                    </div>
+                    <div class="amout fl">
+                        <span>已激活已充值:</span>
+                        <span class="theme sun-sheets active-recharged">111</span>
+                    </div>
+                </div>
+            </div>
+            <table class="active-table">
+                <tr>
+                    <th>全选</th><th><input type="checkbox"></th>
+                    <th>批次</th><th >卡号</th>
+                    <th >密码</th><th >面值</th>
+                    <th >状态</th><th>创建时间</th>
+                </tr>
+                <tr>
+                    <td class="number">1</td><td class="check"><input type="checkbox"></td>
+                    <td class="batch">100001</td><td class="card-number">0001000</td>
+                    <td class="password">fxdBNkZI8Hlwwi6xUZGNqw==<</td><td class="value">100</td>
+                    <td class="state">创建未激活</td><td  class="create-time">2016-11-03   15:20:10</td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="batch"></td><td class="card-number"></td>
+                    <td class="password"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                </tr>
+            </table>
+            <ul class="paging clear">
+                <li class="fl">
+                    <select name="branches">
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li class="fl point theme">首页</li>
+                <li class="fl point"><i class="iconfont pre">&#xe6e7;</i></li>
+                <li class="fl">
+                    <span>第</span>
+                    <input type="text" class="which-page" value="1">
+                    <span>共10页</span>
+                    <i class="go point iconfont">G0>></i>
+                </li>
+                <li class="fl point"><i class="iconfont">&#xe6e9;</i></li>
+                <li class="fl point theme">尾页</li>
+            </ul>
+        </div>
+
+    <script src="../js/frame.js"></script>
+</body>
+</html>

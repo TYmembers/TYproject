@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天缘充值卡后台管理</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--//导出弹窗-->
+    <div class="output-box">
+        <div class="alert-header">导出订单<span class="close-btn hide">×</span></div>
+        <ul class="alert-body">
+            <li>
+                <span>起始时间:</span>
+                <input type="datetime-local" id="startTime">
+            </li>
+            <li>
+                <span>结束时间:</span>
+                <input type="datetime-local" id="endTime">
+            </li>
+            <li>
+                <span>选择类型:</span>
+                <select id="stateType">
+                    <option value="all">全部</option>
+                    <option value="1">待扣款</option>
+                    <option value="2">扣款成功</option>
+                    <option value="3">扣款失败</option>
+                </select>
+            </li>
+            <div class="btn hide">
+                <input type="button" class="yes" value="导出">
+                <input type="button" class="close-btn" value="取消">
+            </div>
+        </ul>
+    </div>
+    <div class="part part3">
+            <form class="query clear" action="" method="post">
+                <div class="form fl ">
+                    <strong>充值号码:</strong><input type="text" class="clearObj" maxlength="11" name="tel" title="请输入11位数的手机号码"  pattern="^1[3|4|5|7|8][0-9]{9}$">
+                </div>
+                <div class="form fl ">
+                    <strong>卡号:</strong><input type="text" class="clearObj" name="card" maxlength="8" title="请输入8位数的卡号" pattern="[0-9]{8}">
+                </div>
+                <div class="form fl ">
+                    <select id="recharge-state" name="state">
+                        <option value="all">全部</option>
+                        <option value="1">待扣款</option>
+                        <option value="2">扣款成功</option>
+                        <option value="3">扣款失败</option>
+                    </select>
+                </div>
+                <div class="form fl">
+                    <div class="date"><input type="date" name="startDay"></div>
+                    <span>—</span>
+                    <div class="date"> <input type="date" name="endDay" ></div>
+
+                </div>
+                <div class="btn-box record-btn-box fl h-40">
+                    <input type="submit" value="查询" class="bg-theme point check">
+                    <input type="button" value="清空" class="bg-theme point clearBtn">
+                </div>
+            </form>
+            <div class="tab-operation clear">
+                <ul class="fl">
+                    <li class="fl bg-theme point selectTime">今天</li>
+                    <li class="fl bg-theme point selectTime">最近三天</li>
+                    <li class="fl bg-theme point selectTime">最近一个月</li>
+                </ul>
+                <ul class="fr">
+                    <li class="fr bg-theme point output">导出</li>
+                </ul>
+
+            </div>
+            <table class="record-table">
+                <tr>
+                    <th>全选</th><th><input type="checkbox"></th>
+                    <th>卡号</th><th >密码</th>
+                    <th >充值手机号</th><th >充值金额</th>
+                    <th >状态</th><th>充值时间</th>
+                    <th>用户ID</th>
+                </tr>
+                <tr>
+                    <td class="number">1</td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number">10016666</td><td class="password">********</td>
+                    <td class="phone">13333333333</td><td class="value">100</td>
+                    <td class="state">待扣款</td><td  class="create-time">2016-11-03   15:20:10</td>
+                    <td>hhnnn</td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="number"></td><td class="check"><input type="checkbox"></td>
+                    <td class="card-number"></td><td class="password"></td>
+                    <td class="phone"></td><td class="value"></td>
+                    <td class="state"></td><td  class="create-time"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <ul class="paging clear">
+                <li class="fl">
+                    <select name="branches">
+                        <option value="10">10</option>
+                    </select>
+                </li>
+                <li class="fl point theme">首页</li>
+                <li class="fl point"><i class="iconfont pre">&#xe6e7;</i></li>
+                <li class="fl">
+                    <span>第</span>
+                    <input type="text" class="which-page" value="1">
+                    <span>共10页</span>
+                    <i class="go point iconfont">G0>></i>
+                </li>
+                <li class="fl point"><i class="iconfont next">&#xe6e9;</i></li>
+                <li class="fl point theme">尾页</li>
+            </ul>
+        </div>
+    <script src="../js/frame.js"></script>
+</body>
+</html>
