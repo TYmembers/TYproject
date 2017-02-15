@@ -253,55 +253,118 @@ header {
   font-weight: bold;
 }
 .commodity-box,
-.commodity-box-modify {
+.commodity-box-modify,
+.info-box,
+.modift-psd-box {
   display: none;
   margin-left: -150px;
   width: 300px;
   height: auto;
 }
-.commodity-box ul.alert-body,
-.commodity-box-modify ul.alert-body {
+.commodity-box .alert-body,
+.commodity-box-modify .alert-body,
+.info-box .alert-body,
+.modift-psd-box .alert-body {
   margin-top: 10px;
 }
-.commodity-box ul.alert-body li,
-.commodity-box-modify ul.alert-body li {
+.commodity-box .alert-body li,
+.commodity-box-modify .alert-body li,
+.info-box .alert-body li,
+.modift-psd-box .alert-body li {
   margin-top: 10px;
   height: 24px;
   font-size: 16px;
 }
-.commodity-box ul.alert-body li input,
-.commodity-box-modify ul.alert-body li input,
-.commodity-box ul.alert-body li select,
-.commodity-box-modify ul.alert-body li select,
-.commodity-box ul.alert-body li span,
-.commodity-box-modify ul.alert-body li span {
+.commodity-box .alert-body li input,
+.commodity-box-modify .alert-body li input,
+.info-box .alert-body li input,
+.modift-psd-box .alert-body li input,
+.commodity-box .alert-body li select,
+.commodity-box-modify .alert-body li select,
+.info-box .alert-body li select,
+.modift-psd-box .alert-body li select,
+.commodity-box .alert-body li span,
+.commodity-box-modify .alert-body li span,
+.info-box .alert-body li span,
+.modift-psd-box .alert-body li span {
   height: 24px;
   display: inline-block;
   width: 120px;
   font-size: 14px;
   color: #666;
 }
-.commodity-box ul.alert-body li span,
-.commodity-box-modify ul.alert-body li span {
+.commodity-box .alert-body li span,
+.commodity-box-modify .alert-body li span,
+.info-box .alert-body li span,
+.modift-psd-box .alert-body li span {
   text-align: right;
   width: 60px;
   font-size: 16px;
 }
-.commodity-box ul.alert-body li select,
-.commodity-box-modify ul.alert-body li select {
+.commodity-box .alert-body li select,
+.commodity-box-modify .alert-body li select,
+.info-box .alert-body li select,
+.modift-psd-box .alert-body li select {
   border: 1px solid #4598d0;
 }
-.commodity-box ul.alert-body li input,
-.commodity-box-modify ul.alert-body li input {
+.commodity-box .alert-body li input,
+.commodity-box-modify .alert-body li input,
+.info-box .alert-body li input,
+.modift-psd-box .alert-body li input {
   outline: none;
   border: 1px solid #4598d0;
   border-radius: 0;
 }
-.commodity-box ul.alert-body .yes-btn,
-.commodity-box-modify ul.alert-body .yes-btn {
+.commodity-box .alert-body .yes-btn,
+.commodity-box-modify .alert-body .yes-btn,
+.info-box .alert-body .yes-btn,
+.modift-psd-box .alert-body .yes-btn {
   width: 100%;
   margin-top: 20px;
   font-weight: 700;
+}
+.modift-psd-box {
+  width: 400px;
+}
+.modift-psd-box .alert-body li span {
+  width: 80px;
+}
+.modift-psd-box .alert-body .btn-box {
+  margin-top: 28px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+.modift-psd-box .alert-body .btn-box input {
+  width: 46%;
+  background-color: #4598d0;
+  border-color: #4598d0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.info-box {
+  width: 400px;
+}
+.info-box .alert-body li span {
+  width: 80px;
+  margin: 0;
+  text-align: center;
+}
+.info-box .alert-body li input {
+  width: 280px;
+}
+.info-box .alert-body .btn-box {
+  margin-top: 28px;
+  margin-bottom: 28px;
+  width: 100%;
+}
+.info-box .alert-body .btn-box input {
+  width: 46%;
+  background-color: #4598d0;
+  border-color: #4598d0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
 }
 .modify-box {
   display: none;
@@ -320,7 +383,6 @@ header {
   float: left;
 }
 .modify-box .modify-body ul .modify-lists {
-  display: none;
   border: none;
   width: 100%;
   position: relative;
@@ -329,6 +391,7 @@ header {
   height: 120px;
 }
 .modify-box .modify-body ul li {
+  display: none;
   cursor: pointer;
   height: 30px;
   line-height: 30px;
@@ -341,6 +404,7 @@ header {
   color: #4cb4cc;
 }
 .modify-box .modify-body ul li.head {
+  display: block;
   color: #666;
   font-weight: 700;
   border-bottom: 1px solid #999999;
@@ -746,7 +810,7 @@ header {
 .paddingbox .list-body ul li {
   height: 46px;
   line-height: 46px;
-  width: 45%;
+  width: 30%;
   padding: 0 20px;
 }
 .paddingbox .list-body ul li input {
@@ -756,7 +820,7 @@ header {
   color: #ffba4a;
 }
 .paddingbox .admin-list {
-  margin-top: 30px;
+  margin-top: 33px;
   position: relative;
 }
 .paddingbox .admin-list .authority {
@@ -809,9 +873,15 @@ header {
 .paddingbox .add-user {
   margin-top: 40px;
 }
+.paddingbox .add-user li:nth-child(2) {
+  margin-right: 150px;
+}
+.paddingbox .add-user li:nth-child(1) {
+  margin-left: 150px;
+  margin-right: 200px;
+}
 .paddingbox .add-user li {
   width: 300px;
-  margin-right: 120px;
   border: 1px solid #f1f1f1;
   height: 300px;
   position: relative;
@@ -852,9 +922,6 @@ header {
   margin-left: 24px;
   position: absolute;
   bottom: 10px;
-}
-.paddingbox .add-user li:nth-child(3) {
-  margin-right: 0;
 }
 .paddingbox .setup-header,
 .paddingbox .setup-body {

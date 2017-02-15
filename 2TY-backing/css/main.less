@@ -170,12 +170,12 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
   }
 }
 //商品管理弹窗
-.commodity-box,.commodity-box-modify{
+.commodity-box,.commodity-box-modify,.info-box,.modift-psd-box{
   display: none;
   margin-left: -150px;
   width: 300px;
   height: auto;
-  ul.alert-body{
+  .alert-body{
     margin-top: 10px;
     li{
       margin-top: 10px;
@@ -209,6 +209,59 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
     }
   }
 }
+//经销商账户页面修改密码弹窗
+.modift-psd-box{
+  width: 400px;
+  .alert-body{
+    li{
+      span{
+        width: 80px;
+      }
+    }
+    .btn-box{
+      margin-top:28px;
+      margin-bottom: 28px;
+      width: 100%;
+      input{
+        width: 46%;
+        background-color: #4598d0;
+        border-color:#4598d0;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+  }
+}
+//账户详情弹窗
+.info-box{
+  width: 400px;
+  .alert-body{
+    li{
+      span{
+        width: 80px;
+        margin: 0;
+        text-align: center;
+      }
+      input{
+        width: 280px;
+      }
+    }
+    .btn-box{
+      margin-top:28px;
+      margin-bottom: 28px;
+      width: 100%;
+      input{
+        width: 46%;
+        background-color: #4598d0;
+        border-color:#4598d0;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+  }
+}
 //修改权限的弹窗
 .modify-box{
   display: none;
@@ -224,7 +277,6 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
       width: 45%;
       float: left;
       .modify-lists{
-        display: none;
         border:none;
         width: 100%;
         position: relative;
@@ -233,6 +285,7 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
         height: 120px;
       }
       li{
+        display: none;
         cursor: pointer;
         height: 30px;
         line-height: 30px;
@@ -245,6 +298,7 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
         color: #4cb4cc;
       }
       li.head{
+        display: block;
         color: #666;
         font-weight: 700;
         border-bottom: 1px solid #999999;
@@ -669,7 +723,7 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
       li {
         height: 46px;
         line-height: 46px;
-        width: 45%;
+        width: 30%;
         padding: 0 20px;
         input {
           color: #ffba4a;
@@ -681,7 +735,7 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
     }
   }
   .admin-list {
-    margin-top: 30px;
+    margin-top: 33px;
     position: relative;
     .authority {
       display: none;
@@ -733,9 +787,15 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
   }
   .add-user {
     margin-top: 40px;
-    li {
+    li:nth-child(2){
+      margin-right: 150px;
+    }
+    li:nth-child(1){
+      margin-left: 150px;
+      margin-right: 200px;
+    }
+    li{
       width: 300px;
-      margin-right: 120px;
       border: 1px solid #f1f1f1;
       height: 300px;
       position: relative;
@@ -776,9 +836,6 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
         position: absolute;
         bottom: 10px;
       }
-    }
-    li:nth-child(3) {
-      margin-right: 0;
     }
   }
   //充值设置

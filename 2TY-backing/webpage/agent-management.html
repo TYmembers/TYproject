@@ -46,8 +46,52 @@
         <div class="yes-btn">确定</div>
     </div>
 </div>
+<!--修改密码弹窗-->
+<div class="alert-box modift-psd-box">
+    <div class="alert-header">密码修改<span class="close-btn hide">×</span></div>
+    <ul class="alert-body">
+        <li>
+            <span>原始密码:</span>
+            <input type="password" class="psdold">
+        </li>
+        <li>
+            <span>新的密码:</span>
+            <input type="password" class="psdnew">
+        </li>
+        <li>
+            <span>确认密码:</span>
+            <input type="password" class="psdagain">
+        </li>
+        <div class="btn-box">
+            <input class="close" type="button" value="取消">
+            <input class="yes" type="button" value="确定">
+        </div>
+    </ul>
+</div>
+ <!--详情修改弹窗-->
+<div class="alert-box info-box">
+    <div class="alert-header">账户修改<span class="close-btn hide">×</span></div>
+    <ul class="alert-body">
+        <li>
+            <span>门店名称:</span>
+            <input type="text" class="name">
+        </li>
+        <li>
+            <span>门店地址:</span>
+            <input type="text" class="address">
+        </li>
+        <li>
+            <span>绑定手机:</span>
+            <input type="text" class="tel">
+        </li>
+        <div class="btn-box">
+            <input class="close" type="button" value="取消">
+            <input class="yes" type="button" value="确定">
+        </div>
+    </ul>
+</div>
 <!--输入管理员密码弹窗-->
-    <div class="alert-box alert-admin-box">
+<div class="alert-box alert-admin-box">
         <div class="alert-header">!提示<span class="close-btn">×</span></div>
         <div class="alert-body">
             <p>请输入管理员密码</p>
@@ -124,7 +168,11 @@
                 </select>
             </td>
             <td class="mybalance">12345.00</td><td class="myrebate">123.123</td>
-            <td class="orange"><span>详情</span><span class="paying">打款</span></td>
+            <td class="orange">
+                <span class="info-modify">详情</span>
+                <span class="paying">打款</span>
+                <span class="modify-password">修改密码</span>
+            </td>
         </tr>
         <tr >
             <td>2016-12-12 10:10:10</td><td>公司（门店）名称</td>

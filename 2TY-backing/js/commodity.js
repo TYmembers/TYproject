@@ -62,7 +62,6 @@
                             putAway();//上架,下架   考虑若是下面的，则需要重新排序
                             modifyData();
                             deleteData();
-                            // activeAlert()
                         }else{
                             alert(datas.message);
                         }
@@ -110,7 +109,9 @@
                                 location.replace(location.href);
 
                             }else{
+                                commodity.box.hide();
                                 alert(datas.message);
+                                location.replace(location.href)
                             }
                         }
                     });
@@ -194,6 +195,7 @@
             $(".commodity-box-modify input.value").val(tdDatas[1]);
             $(".commodity-box-modify input.discount").val(tdDatas[2]);
             $(".commodity-box-modify .selectTime").val(tdDatas[3]);
+            commodity.id=$(this).parent("td").siblings('td.id').text();//商品id,确认修改的是
             commodity.modifyBox.show();
             commodity.modifyClose.bind("click",function () {
                 commodity.modifyBox.hide();
@@ -209,7 +211,7 @@
                     value:commodity.value.val(),
                     discount:commodity.discount.val(),
                     time:commodity.time.val(),
-                    id:$(this).parent("td").siblings('td.id').text()//商品id,确认修改的是哪个商品
+                    id:commodity.id
                 };
                 $.ajax({
                     type:"post",
@@ -224,8 +226,10 @@
                             tds.eq(4).text(modifiedData.discount);//折扣
                             tds.eq(5).text(modifiedData.time+"小时");//到帐时间
                             commodity.modifyBox.hide();
+                            location.replace(location.href);
                             // createTable();
                         }else{
+                            location.replace(location.href);
                             alert(datas.message);
                         }
                     }
@@ -238,35 +242,38 @@
     function deleteData() {
         var delBtn=$(".add-commodity-table input.delete");//删除按钮
         delBtn.bind('click',function () {
+            commodity.id = $(this).parent("td").siblings('td.id').text();//商品id,确认修改的是哪个
             var currentTable=$(this).parents('.add-commodity-table');
             var currentTr=currentTable.find('tr').has('td');
-                $.ajax({
-                type: "post",
-                data:{
-                    id:$(this).parent("td").siblings('td.id').text()//商品
-                },
-                url: "../json/delete.json",
-                datatype: "json",
-                success: function (datas) {
-                    if (datas.code==1){
-                        confirmAlert(tip[2]);
-                        var commanalert={};
-                        commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
-                        commanalert.close = $('.comman-alert .close-icon');
-                        commanalert.box=$(".comman-alert");//弹窗盒子
+            confirmAlert(tip[2]);
+            var commanalert={};
+            commanalert.confirm=$(".comman-alert .yes-btn"); //确定按钮
+            commanalert.close = $('.comman-alert .close-icon');
+            commanalert.box=$(".comman-alert");//弹窗盒子
 
-                        commanalert.close.bind('click',function () {
-                            commanalert.box.hide();
-                        });
-                        commanalert.confirm.bind("click",function () {
+            commanalert.close.bind('click',function () {
+                commanalert.box.hide();
+            });
+            commanalert.confirm.bind("click",function () {
+                $.ajax({
+                    type: "post",
+                    data:{
+                        id:commodity.id
+                    },
+                    url: "../json/delete.json",
+                    datatype: "json",
+                    success: function (datas) {
+                        if (datas.code==1){
                             commanalert.box.hide();
                             createTable();
-                        });
-                    }else{
-                        alert(datas.message);
+                        }else{
+                            commanalert.box.hide();
+                            alert(datas.message);
+                            location.replace(location.href);
+                        }
                     }
-                }
-            })
+                });
+            });
         })
     }
     //提示确定要删除的弹窗

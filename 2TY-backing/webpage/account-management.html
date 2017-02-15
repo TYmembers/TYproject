@@ -107,9 +107,6 @@
                         <lable>登录密码 : </lable><span class="orange changelog">修改</span>
                     </li>
                     <li class="fl">
-                        <lable>手机号码 : </lable><span>146441611</span>
-                    </li>
-                    <li class="fl">
                         <lable>支付密码 : </lable><span class="orange changepay">修改</span>
                     </li>
 
@@ -133,7 +130,11 @@
                 <tr>
                     <td>总部-商务部</td> <td>习近平</td>
                     <td>xjp1234589</td> <td>********</td>
-                    <td class="orange">无任何权限</td>
+                    <td class="orange">
+                        <input type="text" class="rootAll" value="1,2,3" style="display:none">
+                        <input type="text" class="rootID" value="1,2" style="display:none">
+                        无任何权限
+                    </td>
                     <td>
                         <input type="button" value="删除">
                         <input class="modify" type="button" value="修改权限">
@@ -142,7 +143,11 @@
                 <tr>
                     <td>总部-商务部</td> <td>习近平</td>
                     <td>xjp1234589</td> <td>********</td>
-                    <td class="orange">查看</td>
+                    <td class="orange">
+                        <input type="text" class="rootAll" value="2,3,4" style="display:none">
+                        <input type="text" class="rootID" value="2,3" style="display:none">
+                        查看
+                    </td>
                     <td>
                         <input type="button" value="删除">
                         <input class="modify" type="button" value="修改权限">
@@ -151,7 +156,11 @@
                 <tr>
                     <td>总部-商务部</td> <td>习近平</td>
                     <td>xjp1234589</td> <td>********</td>
-                    <td class="orange">查看</td>
+                    <td class="orange">
+                        <input type="text" class="rootAll" value="1,3,4" style="display:none">
+                        <input type="text" class="rootID" value="3,4" style="display:none">
+                        查看
+                    </td>
                     <td>
                         <input type="button" value="删除">
                         <input class="modify" type="button" value="修改权限">
@@ -160,7 +169,11 @@
                 <tr>
                     <td>总部-商务部</td> <td>习近平</td>
                     <td>xjp1234589</td> <td>********</td>
-                    <td class="orange">查看</td>
+                    <td class="orange">
+                        <input type="text" class="rootAll" value="" style="display:none">
+                        <input type="text" class="rootID" value style="display:none">
+                        查看
+                    </td>
                     <td>
                         <input type="button" value="删除">
                         <input class="modify" type="button" value="修改权限">
@@ -206,27 +219,6 @@
                         <input type="text" required="required">
                         <span>*</span>
                     </div>
-                    <div class="libody">
-                        <lable>账户名称：</lable>
-                        <input type="text" required="required">
-                        <span>*</span>
-                    </div>
-                    <div class="libody">
-                        <lable>账户密码：</lable>
-                        <input type="password" required="required">
-                        <span>*</span>
-                    </div>
-                    <div class="libody">
-                        <lable>绑定手机：</lable>
-                        <input type="tel" required="required">
-                        <span>*</span>
-                    </div>
-                    <input type="submit" value="添加" class="subbtn">
-                </form>
-            </li>
-            <li  class="fl">
-                <form id="add-normal-form">
-                    <div class="lihead">添加普通账户</div>
                     <div class="libody">
                         <lable>账户名称：</lable>
                         <input type="text" required="required">

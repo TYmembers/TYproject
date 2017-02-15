@@ -14,7 +14,8 @@ $(document).ready(function () {
         exitSysterm();//退出登录清空本地存储
         viewAuthority();//账户管理页面查看权限
         viewLicense();//查看营业执照
-
+        infoModify();//经销商账户修改
+        modifyPassword();//经销商账户修改密码弹窗
     }
     var account = $(".userbox>a");
     function selestTY() {
@@ -111,7 +112,7 @@ $(document).ready(function () {
             alert.payalertbox.show();
         });
     }
-
+    //修改权限
     function modifyTY() {
         var modify={};
         modify.modify = $(".admin-list .modify");//修改权限按钮
@@ -120,13 +121,40 @@ $(document).ready(function () {
         modify.lists = $(".modify-box .modify-lists");//下拉列表
         modify.li = $(".modify-box .modify-lists>li");//下拉的每一项
         modify.newli=$(".modify-box .newli");//已选择的每一项
+
+
         modify.confirm=$(".modify-box .yes-btn");//确定按钮
         modify.delete =$(".modify-box .no");//删除已选择的选项
         modify.close =$(".modify-box .close-btn");//关闭弹窗
         modify.modify.bind('click',function () {
-            var account=$(this).parents("tr").children("td").eq(2).text();
+            modify.li.css('display','none').removeClass('active');
+            modify.newli.css('display','none').removeClass('active');
+            var account=$(this).parents("tr").children("td").eq(2).text();//账号
+            var rootstrs=$(this).parent().prev('td').children('input.rootAll').val();//所有权限
+            var rootstr=$(this).parent().prev('td').children('input.rootID').val();//已选择的权限
+
+            //显示每个管理员的所有权限
+            if (!rootstrs ||rootstrs==" "){
+                modify.li.hide();
+            }else{
+                modify.rtall=rootstrs.split(",");
+                $.each(modify.rtall,function (i,item) {
+                    modify.li.eq(item-1).css('display','block');
+                });
+            }
+
+            //显示选中的权限
+            if (!rootstr || rootstr==" "){
+                modify.newli.hide();
+            }else{
+                modify.roots=rootstr.split(",");
+                $.each(modify.roots,function (i,item) {
+                    modify.newli.eq(item-1).css('display','block');
+                    modify.li.eq(item-1).addClass('active');
+                });
+            }
             localStorage.setItem("account",account);
-            console.log(account);
+
             modify.box.show();
         });
 
@@ -149,20 +177,18 @@ $(document).ready(function () {
             li.removeClass("active");
         });
 
-        // var select=[];//记录被选中的li的部分
-        //
-        //
-        // modify.confirm.bind("click",function () {
-        //
-        //     $.each(modify.newli,function (i) {
-        //         if (modify.newli.eq(i).css("display")=="block"){
-        //             select.push(i+1)
-        //         }
-        //     });
-        //     localStorage.select=select;
-        //     select=[];
-        //     modify.box.hide();
-        // });
+        var select;//记录被选中的li的部分
+
+        modify.confirm.bind("click",function () {
+            select=[];
+            $.each(modify.newli,function (i) {
+                if (modify.newli.eq(i).css("display")=="block"){
+                    select.push(i+1)
+                }
+            });
+            localStorage.select=select;
+            modify.box.hide();
+        });
 
         modify.close.bind("click",function () {
             modify.box.hide();
@@ -170,7 +196,7 @@ $(document).ready(function () {
     }
 
 //公共弹窗
-    var tip=["输入不能为空!", "还未添加任何权限",'确定要删除吗'];
+    var tip=["输入不能为空!", "还未添加任何权限",'确定要删除吗','密码必须为6-16位的字母和数字及其组合','密码不能为空'];
     function myAlert(tip) {
         var $commanalert=$(" <div class='comman-alert'></div>");
         var $alertheader=$(" <div class='alert-header'>" +
@@ -300,7 +326,7 @@ $(document).ready(function () {
             license.mask.hide();
         })
     }
-
+//查看权限
     function viewAuthority() {
         var authority={};
         authority.view = $(".admin-list .list-body td:nth-child(5)");//查看按钮
@@ -313,52 +339,151 @@ $(document).ready(function () {
              authority.account=$(this).siblings("td").eq(2).text();//账号
              authority.numli =$(this).parents('tr').index();//查看时距离顶部的li的数目
              authority.sibtd=$(this).parent('tr').siblings('tr').children('td:nth-child(5)');
-
-            $.ajax({
-                type:"post",
-                // url:"../Account/user_root",
-                url:"../json/authority.json",
-                data:{
-                    user:authority.account
-                },
-                datatype:'json',
-                success:function (data) {
-                   if(data.code==1){
-                       var arr=data.root.split(",");
-                       var top= 54;
-                       top +=authority.numli*41;
-                       authority.box.css('top',top+"px");
-                       var contents=[
-                           "用户管理",
-                           "充值设置",
-                           "账户管理",
-                           "统计报表"
-                       ];
-                       var content;
-                       $.each(arr,function (i) {
-                            var index=parseInt(arr[i])-1;
-                           content=contents[index];
-                           var li=$("<li>"+content+"</li>");
-                           authority.box.append(li);
-                       });
-                       authority.box.show();
-                       authority.sibtd.css('pointer-events','none');
-                       authority.close.bind('click',function () {
-                           authority.box.hide()
-                               .children('li').remove();
-                           authority.sibtd.css('pointer-events','all');
-                           authority.noview.css('pointer-events','none');
-                       });
-                   }
-
-                }
+             var datastr=$(this).children('input.rootID').val();
+             var datas=datastr.split(",");
+            var top= 54;
+            top +=authority.numli*41;
+            authority.box.css('top',top+"px");
+             var contents=[
+               "用户管理",
+               "充值设置",
+               "账户管理",
+               "统计报表"
+                ];
+            var content;
+            $.each(datas,function (i) {
+                var index=parseInt(datas[i])-1;
+               content=contents[index];
+               var li=$("<li>"+content+"</li>");
+               authority.box.append(li);
             });
+            authority.box.show();
+            authority.sibtd.css('pointer-events','none');
+            authority.close.bind('click',function () {
+            authority.box.hide()
+                   .children('li').remove();
+           authority.sibtd.css('pointer-events','all');
+           authority.noview.css('pointer-events','none');
+           });
+
+
+
         });
 
 
     }
+//经销商账户修改
+    function infoModify() {
+        var agent={};
+        $('.order-table .info-modify').bind('click',function () {
+            agent.name=$(this).parents('tr').children('td').eq(1).text();//门店名称
+            agent.address=$(this).parents('tr').children('td').eq(2).text();//门店地址
+            agent.tel =$(this).parents('tr').children('td').eq(4).text();//手机
+            $('.info-box input.name').val(agent.name);
+            $('.info-box input.address').val(agent.address);
+            $('.info-box input.tel').val(agent.tel);
+            $('.info-box').show();
+            $('.info-box input.close').bind('click',function () {
+                $('.info-box').hide();
+            });
+            $('.info-box input.yes').bind('click',function () {
+                if ($('.info-box input.name').val()==""){
+                   return alert("名称不能为空!");
+                }
+                else if ($('.info-box input.address').val()==""){
+                    return alert("地址不能为空!");
+                }
+                else if($('.info-box input.tel').val()==""){
+                    return alert("电话不能为空!");
+                }
 
-    window.myAlert=myAlert();
+                    $.ajax({
+                        method:"post",
+                        url:"../json/statistic.json",
+                        data:{
+                            name:$('.info-box input.name').val(),
+                            address:$('.info-box input.address').val(),
+                            tel:$('.info-box input.tel').val()
+                        },
+                        datatype:'json',
+                        success:function (datas) {
+                            console.log(datas);
+                            $('.info-box').hide();
+                            if (datas.code==0){
+                                myAlert('修改成功!');
+                                setTimeout(function () {
+                                    location.replace(location.href);
+                                },2000);
+                            }else{
+                                myAlert('修改失败!');
+                                setTimeout(function () {
+                                    location.replace(location.href);
+                                },2000);
+                            }
+                        }
+
+                    })
+            })
+        })
+    }
+//经销商账户修改密码弹窗
+    function modifyPassword() {
+        $('.order-table .modify-password').bind('click',function () {
+            $('.modift-psd-box').show();
+            $('.modift-psd-box input.close').bind('click',function () {
+                $(this).parents('.modift-psd-box').hide();
+            });
+            $('.modift-psd-box input.yes').bind('click',function () {
+                var oldPSD=$('.modift-psd-box input.psdold').val();//旧密码
+                var newPSD=$('.modift-psd-box input.psdnew').val();//新的密码
+                var againPSD=$('.modift-psd-box input.psdagain').val();//确认密码
+                var tel=$(this).parents('tr').children('td').eq(4).text();//手机号码
+                if (oldPSD=="" || newPSD=="" || againPSD==""){
+                    return alert(tip[4]);
+                }
+                else if(newPSD!==againPSD){
+                    return alert('两次输入密码不相同，请重新输入')
+                }
+                else if (!testPSD(oldPSD) || !testPSD(newPSD) || !testPSD(againPSD)){
+                    return alert(tip[3]);
+                }
+                else{
+                    $.ajax({
+                        method:"post",
+                        url:"../json/statistic.json",
+                        data:{
+                            old:oldPSD,
+                            new:newPSD,
+                            again:againPSD,
+                            tel:tel
+                        },
+                        datatype:'json',
+                        success:function (datas) {
+                            $('.modift-psd-box').hide();
+                            if (datas.code==0){
+                                myAlert('修改成功!');
+                                setTimeout(function () {
+                                    location.replace(location.href);
+                                },2000);
+                            }else{
+                                myAlert('修改失败!');
+                                setTimeout(function () {
+                                    location.replace(location.href);
+                                },2000);
+                            }
+                        }
+                    })
+                }
+            });
+        })
+    }
+//测试密码
+    function testPSD(psd) {
+        var pattern=/^[0-9a-zA-Z_#]{6,16}$/;
+        return pattern.test(psd);
+
+    }
+    window.myAlert=myAlert;
     window.tip=tip;
     init();
 });

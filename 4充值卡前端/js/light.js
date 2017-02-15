@@ -4,6 +4,25 @@
 /*
  sweetAlert('可以使用了')*/
 $(document).ready(function(){
+
+//平台、设备和操作系统
+    var system ={
+        win : false,
+        mac : false,
+        xll : false
+    };
+//检测平台
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+//跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面
+    if(system.win||system.mac||system.xll){
+        $('.Welback').css('width',"750px")
+    }else{
+        $('.Welback').css('width',"100%")
+    }
+
     var w={
         weltip:$('#weltip')
     };
@@ -13,6 +32,7 @@ $(document).ready(function(){
     //欢迎页
 
 //充值页面
+    var chargePhone=$('.type');
     var act={
         num:$('#actnum'), //卡号id
         pwd:$('#actpwd'),//密码id
@@ -42,12 +62,10 @@ $(document).ready(function(){
             datatype:"json",
             success:function (xhr) {
                 var datas=JSON.parse(xhr);
-                console.log(datas);
                 if (datas.errMsg=="success" && datas.retData.carrier!==" "){
                     var data=datas.retData;
                     act.opr.text("用户绑定号码"+data.carrier).show();
-                    // localStorage.setItem('carrier',data.carrier);
-                    // localStorage.setItem('phoneNumber',act.opr.val());
+
                 }else {
                     act.opr.hide();
                     sweetAlert("无效的手机号码");//正确字段查不到归属地时
@@ -65,14 +83,23 @@ $(document).ready(function(){
             }
         }
     });
-    act.bind.bind('blur',function () {
-        if($(this).val().length == 11){
 
-        }else{
-            sweetAlert(tip[0]);
-            return false;
+    //卡号聚焦手机号码不能为空
+    act.num.focus(function () {
+        if(!isPhone(act.bind.val())){
+            return sweetAlert(tip[0])
         }
     });
+
+    //密码聚焦，卡号不能为空
+    act.pwd.focus(function () {
+        if(!isPhone(act.bind.val())){
+            return sweetAlert(tip[0])
+        }else if (act.num.val()==''){
+           return sweetAlert('请先输入卡号')
+        }
+    });
+
     //判断充值卡的类型
     act.num.bind('blur',function(){
         $.ajax({
@@ -92,15 +119,14 @@ $(document).ready(function(){
     });
     //立即充值
     act.sub.bind('click',function(){
-        console.log(act.bind.val());
-        console.log(isPhone(act.bind.val()));
+
         if(!isPhone(act.bind.val())){
             return sweetAlert(tip[0])
         }
-        if(act.num.val() == ''){
-            return sweetAlert(tip[6])
+        else if (act.num.val()==''){
+            return sweetAlert('卡号不能为空')
         }
-        if(act.pwd.val() == ''){
+        else if(act.pwd.val() == ''){
             return sweetAlert(tip[7])
         }
 
@@ -113,7 +139,13 @@ $(document).ready(function(){
                 pwd:act.pwd.val()//充值密码
             },
             success:function(xrh){
-                sweetAlert(xrh.msg)
+                sweetAlert(xrh.msg);
+                var confirm=$('.sweet-alert').find('button.confirm');
+                confirm.bind('click',function () {
+                  if(xrh.msg=="充值成功") {
+                      location.href(history.go(-1));
+                  }
+                })
             },
             error:function(){}
         });//充值流量
